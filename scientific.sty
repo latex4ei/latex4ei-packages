@@ -1,0 +1,215 @@
+% www.latex4ei.de										Date 01.05.13
+%
+% DESCRIPTION: 	latex package with useful macros for scientific documents
+% AUTHOR: 		Emanuel Regnath, Martin Zellner
+% VERSION:		1.0			
+%
+% LICENCE: 		Dieses package darf für beliebige Zwecke in LaTeX Dokumente eingebunden werden.
+% 				Änderung am Quellcode sind nicht gestattet. Ergänzungswünsche bitte an info@latex4ei.de
+% 				© 2013, LaTeX4EI
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{scientific}[2013/05/01 Scientific Macros for LaTeX4EI]
+
+% Benötigte Pakete laden
+\RequirePackage{xifthen}				% If Then Else Anweisungen
+\RequirePackage{amsmath}				% erlaubt mathematische Formeln
+\RequirePackage{accents}				% Für eigene Ableitungspunkte benötigt
+\RequirePackage{xcolor}					% Farbiger Text möglich
+
+% Zusätzliche Pakete
+\RequirePackage{amssymb}				% Verschiedene Symbole
+\RequirePackage{esint}					% erweiterte Integralsymbole
+\RequirePackage[version=3]{mhchem}		% chemistry \ce
+
+
+% Save old commands
+\let\oldvec = \vec
+\let\olddot = \dot
+\let\diameter = \O
+
+
+% .:: SI Einheiten
+% ======================================================================
+\RequirePackage{siunitx}				% SI gerechte Darstellung von Zahlen
+\sisetup{per-mode=reciprocal}			% Statt Brüchen ^-1
+\sisetup{sticky-per=true}				% Alle Einheiten hinter per sind reziprok
+\newcommand{\unitof}[1]{\ensuremath{\left[#1\right]}}		% Einheit von
+
+
+
+% .:: Vektoren und Matrizen 
+% ======================================================================
+
+% Definiere \utilde: aus Package undertilde.sty
+\newlength\knuthian@fdfive
+\def\mathpal@save#1{\let\was@math@style=#1\relax}
+\def\utilde#1{\mathpalette\mathpal@save
+              {\setbox124=\hbox{$\was@math@style#1$}%
+\setbox125=\hbox{$\fam=3\global\knuthian@fdfive=\fontdimen5\font$}
+\setbox125=\hbox{$\widetilde{\vrule height 0pt depth 0pt width \wd124}$}%
+               \baselineskip=1pt\relax
+               \vtop{\copy124\copy125\vskip -\knuthian@fdfive}}}
+
+% Definiere Vektoren und Matrizen
+\newcommand{\ma}[1]{\ensuremath{\utilde{\boldsymbol {#1}}}}						% Matrixsymbol
+\newcommand{\mat}[1]{\ensuremath{\begin{bmatrix} #1 \end{bmatrix}}}				% Matrix
+\newcommand{\tma}[3]{\ensuremath{{}_{#1} \ma #2_#3 }}							% Trafomatrix
+\renewcommand{\vec}[1]{\ensuremath{\underline{\boldsymbol {#1}}}}				% Vektor fett und unterstrichen
+\newcommand{\vect}[1]{\ensuremath{\begin{pmatrix} #1 \end{pmatrix}}}			% Vector
+\newcommand{\mvect}[1]{\ensuremath{\left.\begin{matrix} #1 \end{matrix}\right]}}% Matrixvector
+\newcommand{\tensor}[1]{\ensuremath{\underline{\underline{\boldsymbol #1}}}}	% Tensor
+
+% Vektoroperationen
+\newcommand{\norm}[1]{\ensuremath{\left\|#1\right\|}}							% Norm
+
+
+
+% .:: Differentielles Delta
+% ======================================================================
+\newcommand{\diff}{\mathop{}\!\mathrm{\vphantom( d}}					% differentielles Delta perfekt
+
+
+
+% .:: Gemischtes
+% ======================================================================
+\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}} 				% Abrunden
+\newcommand{\ceil}[1]{\ensuremath{\left\lceil {#1} \right\rceil}}				% Aufrunden
+\newcommand{\sprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle }}			% Skalarprodukt
+\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} 						% Betrag (absolute value) 
+\newcommand{\chem}[1]{\ensuremath{\displaystyle{\mathrm{#1}}}}					% chemische Formeln die gut aussehen ;)
+\newcommand{\ir}[1]{\sf #1}														% index roman: Indizes aufrecht schreiben
+\newcommand{\rom}[1]{\ensuremath{\underline{\overline{\textsc{#1}}}}} 			% Römische Zahlen
+
+
+% .:: Eulersche Zahl
+% ======================================================================
+\providecommand{\e}{\mathrm{e}}
+
+
+
+
+% .:: Komplexe und Hyperkomplexe Zahlen
+% ======================================================================
+\newcommand{\cx}[1]{\boldsymbol{#1}}											% komplexe Zahl
+\newcommand{\cxc}[1]{\ensuremath{\boldsymbol #1^*}}								% Konjugiert komplexe Zahl
+\newcommand{\hx}[1]{\ensuremath{\mathfrak #1}}									% hyperkomplexe Zahl
+\renewcommand{\i}{\ensuremath{\mathrm{i}}}										% imaginary unit
+\renewcommand{\j}{\ensuremath{\mathrm{j}}}										% imaginary unit
+\renewcommand{\k}{\ensuremath{\mathrm{k}}}										% imaginary unit
+
+% Real und Imaginärteil
+\renewcommand{\Re}[1]{\ensuremath{\operatorname{Re}\left\{#1\right\}}}
+\renewcommand{\Im}[1]{\ensuremath{\operatorname{Im}\left\{#1\right\}}}
+
+
+% .:: Mengen
+% ======================================================================
+\newcommand{\iset}[2]{\ensuremath{\bigl\{ \bigl. #1 \, \bigr| \, #2 \bigr\}}}	% intensional set
+\newcommand{\eset}[1]{\ensuremath{\bigl\{#1\bigr\}}}							% extensional set
+
+% Abkürzungen für Mengensymbole
+\DeclareMathOperator{\N}{\mathbb N}									% Natürliche Zahlen
+\DeclareMathOperator{\R}{\mathbb R}									% Reele Zahlen
+\DeclareMathOperator{\C}{\mathbb C}									% Komplexe Zahlen
+\DeclareMathOperator{\K}{\mathbb K}									% Reele oder komplexe Zahlen
+\def\B{\operatorname{\mathbb B}}									% Binäre Zahlen 1,0
+\def\O{\operatorname{\mathcal O}}									% Landau
+
+% Mengenoperatoren:
+\let\cupplus\uplus														% Vereinigunsmenge bzw. OR
+
+\newlength{\caplength}
+\setlength{\caplength}{\widthof{$\cap$}}
+\DeclareMathOperator{\capdot}{\cap\hspace{-0.7\caplength}\text{\textperiodcentered}\hspace{0.4\caplength}}			% Schnittmenge bzw. AND
+
+% Topologie
+\newcommand{\interior}[1]{\ensuremath{\overset{{}_\circ}{#1}}}					% Das Innere
+%\newcommand{\boundary}
+
+
+
+% .:: Frequenztransformationen (Fourier, Laplace, usw.)
+% ======================================================================
+
+% Define symbol for Transformations. Source: trfsigns.sty
+\newcommand{\ftsymbol}{\mbox{\setlength{\unitlength}{0.1em}
+                            \begin{picture}(25,4)
+                              \put(3,3){\circle{4}}				% empty
+                              \put(5,3){\line(1,0){13}}			
+                              \put(19,3){\circle*{4}}			% filled
+                            \end{picture}}}
+
+% Define Transformations
+\DeclareMathOperator{\FT}{\overset{\scriptscriptstyle\mathcal{F}}{\ftsymbol}}					% Fourier Transform
+\DeclareMathOperator{\LT}{\overset{\scriptscriptstyle\mathcal{L}}{\ftsymbol}}					% Laplace Transform
+\DeclareMathOperator{\DFT}{\overset{\scriptscriptstyle\mathcal{DF}}{\ftsymbol}}					% Discrete Fourier Transform
+\DeclareMathOperator{\DTFT}{\overset{\scriptscriptstyle\mathcal{DTF}}{\ftsymbol}}				% Discrete Time Fourier Transform
+\DeclareMathOperator{\ZT}{\overset{\scriptscriptstyle\mathcal{Z}}{\ftsymbol}}					% Z-Transform
+
+
+
+% .:: Mathematische Operatoren
+% ======================================================================
+
+% Differentialgeometrie 
+\DeclareMathOperator{\grad}{grad}							% Gradient
+\def\div{\operatorname{div}}								% Divergenz
+\DeclareMathOperator{\rot}{rot}								% Rotation
+\DeclareMathOperator{\lpo}{\Delta}							% Laplace Operator
+\DeclareMathOperator{\laplace}{\Delta}						% Laplace Operator
+\DeclareMathOperator{\waveop}{\square}						% Wellenoperator
+\DeclareMathOperator{\diag}{diag}							% Diagonalmatrix
+
+
+% Sonstige
+\DeclareMathOperator{\Sp}{Sp}								% Spur
+\DeclareMathOperator{\ggT}{ggT}								% ggT
+\DeclareMathOperator{\sgn}{sgn}								% Signum
+\DeclareMathOperator{\const}{const.}						% Konstante
+
+\DeclareMathOperator{\ld}{ld}								% log_2
+
+
+
+% Signale
+\DeclareMathOperator{\dirac}{\ensuremath{\delta}}			% Dirac Distribution
+\DeclareMathOperator{\heavi}{\ensuremath{\theta}}			% Heaviside Sprungfunktion
+\DeclareMathOperator{\sinc}{sinc}							% Sinus Cardinalis
+\DeclareMathOperator{\rect}{rect}							% Rectangular
+\DeclareMathOperator{\tri}{tri}								% Triangular
+\DeclareMathOperator{\erf}{erf}								% Errorfunktion
+\DeclareMathOperator{\erfc}{erfc}							% Errorfunktion
+
+\providecommand{\SNR}{\mathrm{SNR}}							% Signal Noise Ratio
+\providecommand{\ACF}{\ensuremath{\varphi}}					% autocorrelation function
+\providecommand{\PSD}{\ensuremath{\Phi}}					% Power-Spectral-Density
+
+
+% .:: Stochastische Befehle:
+% ======================================================================
+\renewcommand{\P}{\operatorname{\textsf{P}}}		% Wahrscheinlichkeitsmaß
+\DeclareMathOperator{\F}{\mathbb F}					% Ereignisalgebra
+\DeclareMathOperator{\X}{\textsf{\textit{X}}}		% Zufallsvariable X
+\DeclareMathOperator{\Y}{\textsf{\textit{Y}}}		% Zufallsvariable Y
+\DeclareMathOperator{\Z}{\textsf{\textit{Z}}}		% Zufallsvariable Z
+\DeclareMathOperator{\E}{\textsf{E}}				% Erwartungswert
+\newcommand{\ew}[1]{\textit{E} \left[ #1 \right]}	% Erwartungswert (mit Parameter)
+\DeclareMathOperator{\Var}{\textsf{Var}}			% Varianz
+\DeclareMathOperator{\Cov}{\textsf{Cov}}			% Kovarianz
+
+
+
+% .:: Logik Befehle:
+% ======================================================================
+\renewcommand{\implies}{\ensuremath{\rightarrow}}
+\let\limplies\implies
+\providecommand{\lequiv}{\ensuremath{\leftrightarrow}}
+\providecommand{\lnand}{\ensuremath{|}}
+\providecommand{\lxor}{\ensuremath{\downarrow}}
+\providecommand{\ltrue}{w}
+\providecommand{\lfalse}{f}
+
+% Ende von \input
+\endinput
+
