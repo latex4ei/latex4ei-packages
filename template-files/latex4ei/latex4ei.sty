@@ -1,0 +1,326 @@
+%
+% Macros for LaTeX4EI
+%
+% Authors: Emanuel Regnath, Martin Zellner
+% Contact: info@latex4ei.de
+% Version: 1.0
+% License: TBD
+% 
+% © 2011-2015, LaTeX4EI
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latex4ei}[2013/05/06 Macros for LaTeX4EI]
+
+% Options
+% ----------------------------------------------------------------------
+	\newif\ifcolor\colortrue
+	\def\thelanguage{english}
+
+	\DeclareOption{color}{\colortrue}
+	\DeclareOption{nocolor}{\colorfalse}
+	\DeclareOption{german}{\def\thelanguage{ngerman}}
+	\DeclareOption{english}{\def\thelanguage{english}}
+
+	\ProcessOptions\relax
+
+
+% ======================================================================
+% Basic Settings
+% ======================================================================
+
+% Identify Compiler
+% ----------------------------------------------------------------------
+	\RequirePackage{ifxetex}
+
+	% Check compiler. Hint: delete aux files if changing the compiler
+	\ifxetex%
+		%\@namedef{ver@fixltx2e.sty}{9999/12/31}%
+		
+		%XeLaTeX
+		\PassOptionsToPackage{no-math}{fontspec}
+	    \RequirePackage{xltxtra}
+	    \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+		
+		% for unicode decalarations
+		%\let\DeclareUnicodeCharacter\newunicodechar
+		\setmainfont{Times New Roman}
+		\setromanfont{Times New Roman}
+		\setsansfont{Helvetica}
+		
+		% some hacking for scientific.sty
+		\AtBeginDocument{
+			\renewcommand{\C}{\mathbb C}
+			\renewcommand{\B}{\mathbb B}	
+		}
+	\else
+		% pdfLaTeX  
+	    \RequirePackage[utf8]{inputenc}		% UTF-8 input 
+	    \RequirePackage{latex4ei/latex4ei_unicode}	% UTF-8 input of math symbols
+	    \InputIfFileExists{glyphtounicode}{\pdfgentounicode=1}{}	% Glyph-to-Unicode Translation (needs PdfTex >=1.4)
+		%\RequirePackage{textcomp}				% get rid of font warnings
+		%\pdfminorversion=6						% for 3D Objects
+		%\RequirePackage[osf]{mathpazo}			% old style numbering
+	\fi
+
+% Basic LaTeX Settings
+% ----------------------------------------------------------------------
+	\pretolerance=60
+	\tolerance=2000
+	\doublehyphendemerits=10000       % No consecutive line hyphens.
+	\brokenpenalty=10000              % No broken words across columns/pages.
+	\widowpenalty=9999                % Almost no widows at bottom of page.
+	\clubpenalty=9999                 % Almost no orphans at top of page.
+	\interdisplaylinepenalty=100
+	\interfootnotelinepenalty=9999    % Almost never break footnotes.
+
+
+	% Save \title, \author, \date before \maketitle 
+	\RequirePackage[pagebackref=true,pdfpagelabels]{hyperref}
+
+	% Title
+	\makeatletter
+	\renewcommand{\title}[1]{%
+	  \gdef\@title{#1}%
+	  \gdef\thetitle{#1}
+	  \pdfstringdef{\@pdftitle}{\@title}%
+	  \hypersetup{pdftitle=\@pdftitle}%
+	}
+
+	% Institution
+	\providecommand{\institution}[1]{
+		\gdef\theinstitution{#1}
+	}
+
+	% Author
+	\renewcommand{\author}[1]{%
+		\gdef\@author{#1}%
+		\gdef\theauthor{#1}
+		\pdfstringdef{\@pdfauthor}{\@author}%
+		\hypersetup{pdfauthor=\@pdfauthor}%
+	}
+
+	% Date
+	\global\let\thedate\@date 
+	\renewcommand{\date}[1]{%
+		\gdef\@date{#1}%
+		\gdef\thedate{#1}
+	}
+	\makeatother
+
+	% Email
+	\providecommand{\myemail}[1]{\gdef\theemail{#1}}
+	% Web page
+	\providecommand{\mywebsite}[1]{\gdef\thewebsite{#1}}
+
+	% set defaults
+	\author{LaTeX4EI}
+	\title{A LaTeX4EI Document}
+	\myemail{info@latex4ei.de}
+	\mywebsite{www.latex4ei.de}
+
+
+	\AtBeginDocument{
+		% set pdfoptions
+		\hypersetup{
+			pdftitle={\thetitle},    
+	        pdfauthor={\theauthor},
+	        pdfcreator={LaTeX4EI template (www.latex4ei.de)},
+	        pdfkeywords={latex4ei}
+	    }
+	}
+
+
+% Language
+% ----------------------------------------------------------------------
+
+	\RequirePackage[english, ngerman]{babel}
+
+	\RequirePackage{iflang}
+	\providecommand{\EngGer}[2]{\IfLanguageName{english}{#1}{#2}}
+	\expandafter\selectlanguage\expandafter{\thelanguage}
+	\AtBeginDocument{\expandafter\selectlanguage\expandafter{\thelanguage}}
+
+% Graphics
+% ----------------------------------------------------------------------
+	\RequirePackage{graphicx}			% for including images
+	\graphicspath{ {img/} {gfx/} }		% set default search paths for figures
+
+	%\RequirePackage{tikz}				% tikz graphics
+	%\RequirePackage{multirow}			% multirow text
+
+
+% ======================================================================
+% Colors
+% ======================================================================
+\RequirePackage{latex4ei/latex4ei_colors}
+
+\ifcolor
+	\colorlet{col_chapter_num}{tum_gray}
+	\colorlet{col_chapter}{tum_blue_dark}
+	\colorlet{col_section}{tum_blue_dark}
+	\colorlet{col_subsection}{tum_blue_dark}
+	\colorlet{col_subsubsection}{black}
+	
+	\colorlet{col_link}{tum_blue_dark}
+	\colorlet{col_table}{tum_blue_dark}
+	\colorlet{col_figure}{tum_blue_dark}
+	\colorlet{col_itemize}{tum_blue_dark}
+	
+	\colorlet{col_lst}{tum_blue_dark}
+	\colorlet{col_lst_keyword}{tum_blue}
+	\colorlet{col_lst_comment}{tum_green_leaf}
+	\colorlet{col_lst_string}{tum_orange}
+	\colorlet{col_lst_number}{tum_gray_dark}
+\else
+	\colorlet{col_chapter_num}{tum_gray}
+	\colorlet{col_chapter}{black}
+	\colorlet{col_section}{black}
+	\colorlet{col_subsection}{black}
+	\colorlet{col_subsubsection}{black}
+
+	\colorlet{col_ref}{black}
+	\colorlet{col_link}{black}
+	\colorlet{col_table}{black}
+	\colorlet{col_figure}{black}
+	\colorlet{col_itemize}{black}
+	
+	\colorlet{col_lst}{black}
+	\colorlet{col_lst_keyword}{black}
+	\colorlet{col_lst_comment}{tum_gray}
+	\colorlet{col_lst_string}{black}
+	\colorlet{col_lst_number}{tum_gray_dark}
+\fi
+
+\hypersetup{
+	colorlinks=true,
+	linkcolor=col_link,
+	urlcolor=col_link,
+	citecolor=col_link,
+}
+
+
+
+% ======================================================================
+% Macros
+% ======================================================================
+
+
+% Formatting adjustments
+% ----------------------------------------------------------------------
+\RequirePackage{accents}				% accent dots for derivation
+
+	% Thicker dots for derivatives
+	\renewcommand*{\dot}[1]{\accentset{\mbox{\textrm{\large\bfseries .}} }{#1}}
+	\renewcommand*{\ddot}[1]{\accentset{\mbox{\textrm{\large\bfseries .\hspace{-0.25ex}.}}}{#1}}
+	\renewcommand*{\dddot}[1]{\accentset{\mbox{$\overset{\textrm{\large\bfseries .}}{\textrm{\large\bfseries.\hspace{-0.25ex}.}}$}}{#1}}
+
+% Shortcuts for symbols
+% ----------------------------------------------------------------------
+	\providecommand{\ul}[1]{\ensuremath{\underline{#1}}}						% Underline
+	\providecommand{\ol}[1]{\ensuremath{\overline{#1}}}							% Overline
+	\providecommand{\bs}[1]{\ensuremath{\boldsymbol{#1}}}						% Bold and italic in mathmode
+	\providecommand{\Ra}{\ensuremath{\Rightarrow}}								% Rightarrow
+	\providecommand{\ra}{\ensuremath{\rightarrow}} 								% Rightarrow
+	\providecommand{\lra}{\ensuremath{\longrightarrow}} 						% Longrightarrow
+	\providecommand{\upa}{\ensuremath{\uparrow}} 
+	\providecommand{\downa}{\ensuremath{\downarrow}}
+	\providecommand{\bdot}{\ensuremath{\boldsymbol \cdot}} 						% Thick dot for vector product
+	\providecommand{\svdots}{\ensuremath{\olddot :}}							% Small vertical dots
+	\providecommand{\shdots}{\ensuremath{\!\cdot \!\cdot\!\cdot\!}}				% Small horizontal dots
+
+% Terms and definitions
+% ----------------------------------------------------------------------
+
+	% Define BibTeX command
+	\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+	% ToDo Command
+	\makeatletter
+	\providecommand{\todo}[1]{%
+	\textcolor{red}{\bf ToDo:\@ifundefined{@captype}{\marginpar{\color{red}\bf ToDo!}}{\relax} #1} %check for float environments
+	}  
+	\makeatother
+
+	% Special term
+	\providecommand{\term}[1]{\textit{#1}}
+
+	% Related work
+	\providecommand{\work}[1]{\textit{#1}}
+
+	% Email
+	\providecommand{\email}[1]{\href{mailto:#1}{\nolinkurl{#1}}}
+
+% References and Links
+% ----------------------------------------------------------------------
+
+	% several ref macros
+	\providecommand\figureref[1]{\hyperref[#1]{\figurename~\ref*{#1}}}
+	\providecommand\figurepageref[1]{\figureref{#1}(p.~\pageref{figure:#1})}
+	\providecommand\tableref[1]{\hyperref[#1]{\tablename~\ref*{#1}}}
+	\providecommand\tablepageref[1]{\tableref{#1}(p.~\pageref{table:#1})}
+	\providecommand\sourcecoderef[1]{\hyperref[#1]{\lstlistingname~\ref*{#1}}}
+	\providecommand\sourcecodepageref[1]{\sourcecoderef{#1}(p.~\pageref{sourcecode:#1})}
+	\providecommand\chapterref[1]{\chaptername~\ref*{\chaptername:#1}(p.~\pageref{chapter:#1})}
+	\providecommand\sectionref[1]{\textsection~\ref*{section:#1}(p.~\pageref{section:#1})}
+	\providecommand\appendixref[1]{\appendixname~\ref*{appendix:#1}(p.~\pageref{appendix:#1})}
+
+
+	% break also on hyphens inside the \url command
+	\def\UrlBreaks{\do\.\do\@\do\\\do\/\do\!\do\_\do\|\do\;\do\>\do\]%
+	  \do\)\do\,\do\?\do\'\do+\do\=\do\#\do-} % \do- is new!
+
+
+
+% ======================================================================
+% Environments
+% ======================================================================
+\RequirePackage{caption}
+
+% Tables
+% ----------------------------------------------------------------------
+	\captionsetup[table]{labelfont={color=col_table,sf},textfont={sf,small}}
+
+	% table rules
+	\def\trule{\noalign{\vspace{1pt}\hrule\hrule\vspace{2pt}}}					% top rule
+	\def\mrule{\noalign{\vspace{1pt}\hrule\vspace{2pt}}}						% middle rule
+	\def\brule{\noalign{\vspace{2pt}\hrule\hrule\vspace{1pt}}}					% bottom rule
+
+	% colored table rules
+	%\def\ctrule{\noalign{{\color{col_table}\hrule\hrule}\vspace{2pt}}}					% colored top rule
+	%\def\cmrule{\noalign{\vspace{1pt}{\color{col_table}\hrule}\vspace{2pt}}}			% colored middle rule
+	%\def\cbrule{\noalign{\vspace{2pt}{\color{col_table}\hrule\hrule}}}					% colored bottom rule
+
+	% TDB
+	\def\ctrule{\noalign{\vspace{1pt}\begingroup\color{col_table}\hrule\hrule\endgroup\vspace{2pt}}}	% colored top rule
+	\def\cmrule{\noalign{\vspace{1pt}\begingroup\color{col_table}\hrule\endgroup\vspace{2pt}}}			% colored middle rule
+	\def\cbrule{\noalign{\vspace{2pt}\begingroup\color{col_table}\hrule\hrule\endgroup\vspace{1pt}}}	% colored bottom rule
+
+% Figures
+% ----------------------------------------------------------------------
+	\captionsetup[figure]{labelfont={color=col_figure,sf},textfont={sf,small}}
+
+% Sourcecode listings
+% ----------------------------------------------------------------------
+	\RequirePackage{listings}
+	\lstset{
+	    basicstyle=\normalsize\tt\lst@ifdisplaystyle\small\fi,
+	    tabsize=4,
+	    %gobble=auto,				% skip initial tabs %not supported yet
+	    numbers=none,				% switch numbers on: left
+	    numberstyle=\tiny\sf\color{col_lst_number},
+	    numbersep=1em,
+	    keepspaces=true,
+	    keywordstyle=\color{tum_blue_dark},
+	    commentstyle=\color{col_lst_comment},
+	    stringstyle=\color{col_lst_string},
+	    captionpos = t,
+	    frame = tb,
+	    %framextopmargin={\smallskipamount},
+	    %framexbottommargin={\smallskipamount},
+	    framerule=1pt,
+	    rulecolor = \color{col_lst},
+	}
+	\captionsetup[lstlisting]{labelfont={color=col_figure,sf},textfont={sf,small}}
+
+	% Inline code listings
+	\let\code\lstinline

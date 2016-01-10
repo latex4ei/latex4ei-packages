@@ -1,0 +1,171 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% LaTeX4EI Example for Cheat Sheets 									
+%
+% @encode: 	UTF-8, tabwidth = 4, newline = LF
+% @author:	LaTeX4EI		
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+% ======================================================================
+% Document Settings
+% ======================================================================
+
+% possible options: color/nocolor, english/german, threecolumn
+% default: color, english
+\documentclass[english]{latex4ei/latex4ei_sheet}
+
+% set document information
+\title{Example\\ Cheat Sheet}
+\author{LaTeX4EI}					% optional, delete if unchanged
+\myemail{info@latex4ei.de}			% optional, delete if unchanged
+
+
+% DOCUMENT_BEGIN ===============================================================
+\begin{document}
+
+\maketitle	% requires ./img/Logo.pdf
+
+% SECTION ====================================================================================
+\section{Temporal Tests}
+% ============================================================================================
+
+Unicode Tests:\\
+⊭⊨∫∬∮∯∝∂∑∑Σ∧∧„“” α $β$ ℝ a
+
+
+
+% SECTION ====================================================================================
+\section{Mathematik}
+% ============================================================================================
+
+\begin{sectionbox}
+	\subsection{Sinus, Cosinus}
+	Abstandtest
+	\begin{tablebox}{c|c|c|c|c||c|c|c|c}
+		$x$ & $0$ & $\pi / 6$ & $\pi / 4$ & $\pi / 3$ & $\frac{1}{2}\pi$ & $\pi$ & $1\frac{1}{2}\pi$ & $2 \pi$ \\
+		$\scriptstyle{ \varphi }$ & $\scriptstyle{0^\circ}$ & $\scriptstyle{30^\circ}$ & $\scriptstyle{45^\circ}$ & $\scriptstyle{60^\circ}$ & $\scriptstyle{90^\circ}$ & $\scriptstyle{180^\circ}$ & $\scriptstyle{270^\circ}$ & $\scriptstyle{360^\circ}$ \\ \cmrule
+		$\sin$ & $0$ & $\frac{1}{2}$ & $\frac{1}{\sqrt{2}}$ & $\frac{\sqrt 3}{2}$ & $1$ & $0$ & $-1$ & $0$ \\
+		$\cos$ & $1$ & $\frac{\sqrt 3}{2}$ & $\frac{1}{\sqrt 2}$ & $\frac{1}{2}$ & $0$ & $-1$ & $0$ & $1$ \\     
+		$\tan$ & $0$ & $\frac{\sqrt{3}}{3}$ &	$1$	&	$\sqrt{3}$ & $\pm \infty$ & $0$ & $\mp \infty$ & $0$\\ 
+	\end{tablebox}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{$2 \times 2$ Matrix}
+	$\ma A = \mat{a & b\\ c & d}$ \quad\ $\ma A^{-1} = \frac{1}{\det \ma A} \mat{d & -b\\ -c& a}$ \quad\ \parbox{1.9cm}{ $\det(\ma A) = ad-bc$ \\[0.5em] $\Sp(\ma A) = a+d$ } \\
+	\\
+	\\
+	Eigenwerte $\displaystyle \lambda_{1/2} = \frac{\Sp \ma A}{2} \pm \sqrt{ \left( \frac{\Sp \ma A}{2} \right)^2 - \det \ma A }$
+\end{sectionbox}
+
+
+\begin{sectionbox}
+	\subsection{Fouriertransformation}
+	\begin{emphbox}
+		$\displaystyle \underset{\text{Zeitbereich}}{\large f(t)} \FT \underset{\text{Frequenzspektrum}}{\large F(\omega)} := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t$
+	\end{emphbox} 
+	Anmerkung: Es gibt unterschiedliche Normungen ($1, \frac{1}{\sqrt{2\pi}}$)\\
+\end{sectionbox}
+
+
+
+% SECTION ====================================================================================
+\section{Physik}
+% ============================================================================================
+
+
+\begin{symbolbox}
+	\renewcommand{\arraystretch}{1.5}
+	\begin{tabular}{rl}
+		\textbf{Naturkonstanten} & \\ \mrule
+		Lichtgeschwindigkeit & $\mathrm{c}_0 \equiv \frac{1}{\sqrt{\varepsilon_0 \mu_0}} := \SI{299 792 458}{\meter\per\second}$\\
+		Elementarladung & $\mathrm{e}  \approx \SI{1.602 177e-19}{\coulomb}$\\
+		\textsc{Planck}-Konst. & $h \approx \SI{6,626 069 57e-34}{\joule\second}$\\
+			& $\hbar \equiv \frac{h}{2 \pi} \approx \SI{1.05457e-34}{\joule\second}$ \\
+		Elektr. Feldkonst. & $\varepsilon_0 = \SI{8.854 188e-12}{\farad\per\meter}$\\		% \equiv \frac{1}{\mu_0 c_0^2}
+		Magn. Feldkonst. & $\mu_0 := 4\pi \times \SI{e-7}{\henry\per\meter}$\\
+		\textsc{Avogadro}-Konst. & $\NA \approx \SI{6.022 141e23}{\per\mole}$\\
+		Atomare Masse & $\mathrm{u} \approx \SI{1.660 539e-27}{\kilogram}$\\
+		Elektronenmasse & $m_{\ir e} \approx \SI{9,109 383e-31}{\kilogram}$\\
+		Protonenmasse & $m_{\ir p} \approx \SI{1,674 927e-27}{\kilogram}$\\
+		Neutronenmasse & $m_{\ir n} \approx \SI{1,672 622e-27}{\kilogram}$\\
+		Gravitationskonst. & $\mathrm{G} \approx \SI{6,673 84e-11}{\kilogram\per\second\squared}$\\
+		\textsc{Boltzmann}-Konst. & $\kB \approx \SI{1.380 655e-23}{\joule\per\kelvin}$\\
+	\end{tabular}
+\end{symbolbox}
+	
+\begin{sectionbox}
+	\subsection{Einheitpräfixe}
+	\begin{tablebox}{l | ccccccccc}
+		$10^\pm$ 	& $21$ & $18$ & $15$ 	&  $12$ & $9$ &  $6$ & $3$ &  $2$ & $1$ \\ \cmrule
+		$+$			& $\underset{\ir zetta}{\si{\zetta}}$ & $\underset{\ir exa}{\si{\exa}}$ & $\underset{\ir peta}{\si{\peta}}$	& $\underset{\ir tera}{\si{\tera}}$ & $\underset{\ir giga}{\si{\giga}}$ & $\underset{\ir mega}{\si{\mega}}$ & $\underset{\ir kilo}{\si{\kilo}}$ & $\underset{\ir hecto}{\si{\hecto}}$ & $\underset{\ir deca}{\si{\deca}}$ \\
+		$-$ 		& $\underset{\ir zepto}{\si{\zepto}}$ & $\underset{\ir atto}{\si{\atto}}$ & $\underset{\ir femto}{\si{\femto}}$ & $\underset{\ir pico}{\si{\pico}}$ & $\underset{\ir nano}{\si{\nano}}$ & $\underset{\ir micro}{\si{\micro}}$ & $\underset{\ir milli}{\si{\milli}}$  & $\underset{\ir centi}{\si{\centi}}$& $\underset{\ir deci}{\si{\deci}}$
+	\end{tablebox}
+\end{sectionbox}	
+
+
+\begin{sectionbox}	
+	\subsection{Maxwellsche Gleichungen (Naturgesetze)}
+	\begin{emphbox}
+		\begin{tabular}{ll}
+			Gaußsches Gesetz: & Faradaysches ind. Gesetz\\
+			\large $\div \vec D = \varrho $ & \large $\rot \vec E + \frac{\partial \vec B}{\partial t} = 0$ \\[1em]
+			Quellfreiheit des magn. Feldes & Ampèrsches Gesetz\\
+			\large $\div \vec B = 0$ & \large $\rot \vec H = \vec j + \frac{\partial \vec D}{\partial t}$\\[0.3em]
+		\end{tabular}
+	\end{emphbox}
+\end{sectionbox}
+
+
+
+
+% SECTION ====================================================================================
+\section{Informatik}
+% ============================================================================================
+
+
+\begin{sectionbox}
+	\subsection{c Programming Language}
+	% gobble indicates leading spaces. 1 tab = 4 spaces
+	\begin{lstlisting}[language=C, gobble=4]
+	#include <stdio.h>
+
+	int main(int argc, char *argv[]){
+
+		// global variables
+		float percent = 0.0f;
+
+	}
+
+	// custom functions
+	int readIntFromFile(path){
+		FILE *fp;
+		int i;
+		fp=fopen(path,"rb");
+		fscanf(fp, "%d\n", &i);
+		return i
+	}
+	\end{lstlisting}
+\end{sectionbox}
+
+
+% SECTION ====================================================================================
+\section{Chemie}
+% ============================================================================================
+% latex4ei uses the "mhchem" package version 3. Use the \ce{...} command to typeset chemical equations
+
+\begin{sectionbox}
+
+	\subsection{Bleibatterie}
+	
+		\subsubsection{Reaktion an der positiven Elektrode}
+		\begin{center}
+			\boxed{$\ce{PbO2 + 3H+ +HSO4- +2e- <=>[\text{disch.}][\text{charge}] PbSO4 + 2H2O}$}
+		\end{center}
+		$\ce{O2}$ Entwicklung (Selbstentladung): $\ce{H2O -> 1/2O2 + 2H+ +2e-}$\\
+		Korrosion $\ce{Pb}$ (Alterung): $\ce{Pb + 2H2O -> PbO2 + 4H+ +4e-}$
+\end{sectionbox}
+
+
+% DOCUMENT_END =================================================================
+\end{document}

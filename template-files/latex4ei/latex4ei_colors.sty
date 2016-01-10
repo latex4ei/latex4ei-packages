@@ -1,0 +1,85 @@
+%
+% latex package with color scheme
+%
+% Authors: Emanuel Regnath, Martin Zellner
+% Contact: info@latex4ei.de
+% Version: 1.0
+% License: TBD
+% 
+% © 2011-2015, LaTeX4EI
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latex4ei_colors}[2015/03/30 Colors for LaTeX4EI]
+
+% Packages
+% ----------------------------------------------------------------------
+	\RequirePackage{xcolor}
+
+% Own Macros
+% ----------------------------------------------------------------------
+	% define command to provide colors
+	\makeatletter
+	\providecommand{\providecolor}[2]{%
+	  \@ifundefinedcolor{#1}{\colorlet{#1}{#2}}{}}
+	\makeatother
+
+% ======================================================================
+% Color Scheme
+% ======================================================================
+
+% TUM Color Palette
+% ----------------------------------------------------------------------
+	% Note: The following color definitions are copied 
+	% from the official TUM Styleguide
+
+	% the tum logo color
+	\definecolor{col_tum_logo}{RGB}{0, 101, 189}		% Pantone 300
+
+	% additional blue colors
+	\definecolor{tum_blue_dark2}{RGB}{0, 51, 89}		% Pantone 540
+	\definecolor{tum_blue_dark}{RGB}{0, 82, 147}		% Pantone 301
+	\definecolor{tum_blue}{RGB}{0, 115, 207}			% Pantone 285
+	\definecolor{tum_blue_light}{RGB}{100, 160, 200}	% Pantone 542
+	\definecolor{tum_blue_light2}{RGB}{152, 198, 234}	% Pantone 283
+
+	% emphasize colors
+	\definecolor{tum_green}{RGB}{162, 173, 0}			% Pantone 383
+	\definecolor{tum_orange}{RGB}{227, 114, 34}			% Pantone 158
+	\definecolor{tum_elfenbein}{RGB}{218, 215, 203}		% Pantone 7527
+
+	% gray colors
+	\definecolor{tum_gray_dark}{RGB}{88, 88, 90}
+	\definecolor{tum_gray}{RGB}{156, 157, 159}
+	\definecolor{tum_gray_light}{RGB}{217, 218, 219}
+
+
+	% advanced colors
+	\definecolor{tum_purple}{RGB}{105, 8, 90}
+	\definecolor{tum_purple_dark}{RGB}{15, 27, 95}
+
+	\definecolor{tum_blue_ocean}{RGB}{0, 119, 138}		
+	\definecolor{tum_green_leaf}{RGB}{0, 124, 48}
+	\definecolor{tum_green_grass}{RGB}{103, 154, 029}
+
+	\definecolor{tum_yellow}{RGB}{255, 220, 0}
+	\definecolor{tum_yellow_dark}{RGB}{249, 186, 0}
+
+	\definecolor{tum_orange_dark}{RGB}{214, 76, 19}
+
+	\definecolor{tum_red}{RGB}{196, 7, 27}
+	\definecolor{tum_red_dark}{RGB}{156, 13, 22}
+
+% Own colors (deprecated)
+% ----------------------------------------------------------------------
+	\definecolor{lightblue}{RGB}{235,235,255}
+	\definecolor{lightred}{RGB}{255,240,240}
+	\definecolor{lightgreen}{RGB}{240,255,240}
+	\definecolor{lightyellow}{RGB}{255,255,240}
+	\definecolor{lightblue}{RGB}{220, 240, 247}
+	\definecolor{darkblue}{RGB}{23,110,138}
+	\definecolor{notsodarkblue}{RGB}{119,193,214}
+	\definecolor{tablecolor}{RGB}{0,128,0}
+
+	\definecolor{lila}{RGB}{128,0,128}
+	\definecolor{latex4eiblau}{RGB}{86,124,136}
+	\definecolor{latex4eigruen}{RGB}{150,163,110}

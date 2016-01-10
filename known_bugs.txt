@@ -1,0 +1,20 @@
+LaTeX4EI Template Release 1.0                                  Date: 2015-04-01
+
+
+
+Known Bugs: 1
+
+
+#1 : Misplaced columnbreak between \section and \begin{sectionbox}
+--------------------------------------------------------------------------------
+
+	Description: The multicolumn package inserts a column break if a section box
+		will not fit in the actual column. If a \section heading is placed before
+		that box it might remain on the previous column. The heading and the box
+		are split up and placed at different columns.
+
+	Work around: Insert a manual column break with "\columnbreak" BEFORE the 
+		\section command.
+
+
+© 2011-2015, LaTeX4EI

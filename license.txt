@@ -1,0 +1,29 @@
+LaTeX4EI Template Release 1.0                                  Date: 2016-01-06
+
+
+
+LICENSE:
+
+You are allowed to create and share documents created 
+with this template under the following conditions:
+
+
+* visible reference to www.latex4ei.de:
+    you have to place a "based on template from www.latex4ei.de" or similar in your documents.
+
+
+* no commercial use:
+    you are not allowed to sell any part of this template or documents created with this template.
+
+
+* limited modification:
+    you are allowed to modify the template for personal use.
+    you are NOT allowed to distribute modified versions of this template on your own.
+    Please push back your modifications to us so that we have the chance to integrate it.
+
+
+If you want to publish your latex code you are allowed to publish the source code 
+of this template as well but you have to make sure that a copy of this license is included.
+
+
+© 2011-2016, LaTeX4EI

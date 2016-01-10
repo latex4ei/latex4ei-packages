@@ -1,0 +1,321 @@
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% LaTeX4EI Template for Cheat Sheets 									
+%
+% @encode: 	UTF-8, tabwidth = 4, newline = LF
+% @author:	LaTeX4EI - Template created by Emanuel Regnath and Martin Zellner
+% @contact: info@latex4ei.de	
+%
+% @license:	
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+
+
+% Known bugs of this template: 
+% * sole section headings at the end of a column are not shifted to the next column 
+%	automatically, please insert a \columnbreak before \section in this case.
+
+
+
+% Document Class ===============================================================
+
+% possible options: color/nocolor, english/german, legacyboxes, threecolumn
+% default: color, english
+\documentclass[english]{latex4ei_fs}
+
+% set document information
+\title{LaTeX4EI Template \\ Documentation}
+\author{LaTeX4EI}					% optional, delete if unchanged
+\myemail{info@latex4ei.de}			% optional, delete if unchanged
+
+\RequirePackage{latex4ei_unicode}
+
+
+%---------------------------------------%
+%		LaTeX4EI template   			%
+%~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~%
+
+% DOCUMENT_BEGIN ===============================================================
+\begin{document}
+
+% Title (needs ./img/Logo.pdf)
+\maketitle
+
+
+% SECTION ====================================================================================
+\section{Introduction}
+% ============================================================================================
+
+\begin{sectionbox}
+	\subsection{Terms of use} 
+		This template may be used only for cheat sheets that are published on the \emph{LaTeX4EI} web page. \\
+
+		A lot of effort has been put into this template and therefore all cheat sheets created with this template shall also be availible on the \emph{LaTeX4EI} project web page. \\
+
+		\textbf{\copyright  LaTeX4EI, 2015}
+\end{sectionbox}
+\begin{sectionbox}
+	\subsection{Purpuse} 
+		The purpuse of this document is to give an overview over all functions of the LaTeX4EI template with the goal to help the reader to create beautiful cheat sheets.
+\end{sectionbox}
+
+\section{Box Environments}
+\label{box_useage}
+\begin{sectionbox}
+For the structuring of the document, the LaTeX4EI template offers different boxes.
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Sectionbox}
+
+	The main structure is defined through the \emph{sectionbox} environment.
+
+	\begin{lstlisting}[language=tex, gobble=3]
+	\begin{sectionbox}
+		content of the sectionbox
+	\end{sectionbox} 
+	\end{lstlisting}
+\end{sectionbox}
+\begin{sectionbox}
+
+	\subsection{Tablebox}
+	
+	Tables can be set using the \emph{tablebox} or a \emph{tablebox*} environment. 
+	The table entries are embedded within \code|\begin{tablebox*}{llll}| and 
+	\code|\end{tablebox*}|. \\
+
+	Example for a table with \emph{tablebox}:
+	\begin{tablebox*}{llll}
+			vector & $\vec a = \vect{ 1 \\ 2}$ & matrix & $\ma M = \mat{1 & 2 \\ 3 & 4}$ \\ \cmrule
+			Example & of & the & tablebox \\
+	\end{tablebox*}
+	
+	In contrast to that a normal \LaTeX table:\\
+	\begin{tabular}{lll} \ctrule
+		A & small & table\\
+		with & two & lines  \\ \cbrule
+	\end{tabular}
+\end{sectionbox}
+
+
+\begin{sectionbox}
+	\subsection{Symbolbox}
+	A symbolbox can be used to define symbols for different values. \\
+
+	The equation is embedded within \code|\begin{symbolbox}| and 
+	\code|\end{symbolbox}|. \\
+
+	Example of a \emph{symbolbox (to define symbols)}
+	\renewcommand{\arraystretch}{2.0}
+	\begin{symbolbox}
+		\begin{tabular}{lll}
+		Preasure & $\unitof{p}$ & $\si{\newton\per\meter\squared}$ \\
+		Seebeck-Ko. & $\unitof{S}$ & $\si{\micro\volt\per\kelvin}$\\
+		Wärmeleitf. & $\unitof{\lambda}$ & $\si{\watt\per\meter\kelvin}$
+		\end{tabular}
+	\end{symbolbox}	
+\end{sectionbox}
+
+
+\begin{sectionbox}
+	\subsection{Cookbox}
+	a so-called cookbox can be used to set beautiful step-by-step instructions.
+
+	The items are embedded within \code|\begin{cookbox}| and 
+	\code|\end{cookbox}|. \\
+
+	\begin{cookbox}{How to create a beautiful cheat sheet}
+		\item Read this manual
+		\item Create a beautiful cheat sheet
+	\end{cookbox}
+\end{sectionbox}
+
+
+\begin{sectionbox}
+	\subsection{Emphbox}
+	really important formulars can be set in a box with a red border. \\
+
+	The equations are embedded within \code|\begin{emphbox}| and 
+	\code|\end{emphbox}|. \\
+
+	\begin{emphbox}
+		$x_{1/2}=\frac{ -b \pm \sqrt{b^2-4ac} }{ 2a }$
+	\end{emphbox}
+\end{sectionbox}
+
+
+\section{Language and Text}
+\begin{sectionbox}
+
+	\subsection{Text}
+		The \LaTeX  source code of this template is interpreted as unicode. Therefore special characters like the german umlauts (ä,ö,ü) can be used easily. \\
+
+		Also greek characters can be written as math commands (\code|$\alpha, \beta, \gamma$| $\ra \alpha, \beta, \gamma$) or as unicode ($α, β, γ$). \\
+
+		This is also vailid for the math characters: $\int, \partial, \R$ or $∫, ∂, ℝ$.
+	
+\end{sectionbox}
+\begin{sectionbox}
+	\subsection{Language}
+		The language can be choosen with the options \emph{english} or \emph{german}. \\
+
+		It is also possible to define a different language for a part of a document:
+		
+		\code|\EngGer{|You have chosen the language option \emph{english}\code|}{|Du hast \emph{ngerman} als Sprachoption gewählt\code|}| \\
+
+		However, you can also switch to english in a german cheat sheet using \code|\selectlanguage{english}|. This guarantees that words are hyphenated correctly.
+
+		And back to german with \code|\selectlanguage{ngerman}| (use \emph{ngerman} not \emph{german}!)
+	
+\end{sectionbox}
+
+\section{Images}
+
+\begin{sectionbox}
+	
+	Images can be included using the \code|\includegraphics| command.\\
+	
+	Do not use figure environment.
+
+	The width should be set as a fraction of \code|\columnwidth|.
+	\begin{lstlisting}[language=tex]
+	\begin{center}
+		\includegraphics[width = 0.5\columnwidth]{Logo}
+	\end{center}
+	\end{lstlisting}
+	
+	The \emph{includegraphics} command searches for images in \code|./| and \code|./img|. The file extension is added automatically.
+\end{sectionbox}
+
+
+\section{Conventions}
+
+\begin{sectionbox}
+	\subsection*{Why?}
+
+	Different formatting is helpful for the understanding of: variables, constants, functions, fixed units, vectors, matrices, sets, complex values, random variables \ldots
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{General conventions for cheat sheets}
+	\begin{itemize}
+		\item Always the name first and the the symbol afterwards! \\ Example: "The angular velocity $\omega$, "The angular velocity \code|\omega|"
+		\item Densities are always set in small letters
+		\item Brackets around fractions or bigger equations are set with \code|\left|( ... \code|\right|)
+	\end{itemize}
+\end{sectionbox}
+
+\begin{sectionbox}
+\subsection{Tables}
+	\begin{tablebox}{lll}
+		Line &	B/W	& Colored \\
+		\cmrule
+		Line on top & 		\code|\trule|	&	\code|\ctrule| \\
+		Linie in the middle &		\code|\mrule|	 &	\code|\cmrule| \\
+		Line at bottom &	\code|\brule|		& \code|\cbrule|
+	\end{tablebox}
+
+%\subsubsection{In Planning}
+%	- Physikalische Größen bekommen eigenen Befehl z.B. "\code|\Stromdichte|" schreibt schräg/setzt Link
+% 	- Eigene Formatierung für Namen z.B. \code|\name{Gauß}|
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Boxes}
+	Different topics are categorized within boxes. The following types of boxes are availible:
+
+	\emph{sectionbox}: for a topic (grey)
+
+	\emph{tablebox}: for colored tables
+
+	\emph{symbolbox}:	for units and symbols (orange)
+
+	\emph{emphbox}:	for very important equations (red box)
+
+	\emph{topicbox}: for important overviews about the topic
+
+	For further information on how to use the different boxes please refer to section \ref{box_useage}.
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Vectors and matrices}
+		\begin{tablebox}{ll}
+			vector symbol & \code|\vec r| \\
+			vector & \code|\vect{ x \\ y \\ z}| \\
+			transpose & \code|\vec r^\top| \\
+			matrix symbol & \code|\ma M| \\
+			matrix & \code|\mat{ a & b \\ c & d }| \\
+			tensor & \code|\tensor C|
+		\end{tablebox}
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Indicies and superscript}
+		Depending on what the index refers to it should be set differently:
+		\begin{itemize}
+			\item $E_{\ir kin}$ (\code|E_{\ir kin}|) if an index refers to a word (e.g. "kinetic"). The command name \code|\ir| is an abbriviation for  "index roman".
+			\item $E_x$ (\code|E_x|) if the index refers to a symbol (e.g. the $x$ compontent of the electromagnetic field). \\
+		\end{itemize}
+
+		The same difference also applies for the superscript (\code|^|).
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Functions}
+		The trigonometric functions are usually set upright. Therefore the commands \code|\exp|, \code|\sin|, \code|\cos|, \code|\sinh|, \code|\cosh| and \code|\sinc| should be used. \\
+		%(\code|\si| anders besetzt, vl \code|\unit = \si|?)
+
+		Similar we can set: 
+
+		Differential operators:  \code|\grad|, \code|\div|, \code|\rot| and \code|\lpo|
+
+		Maximum, minium and limes operators: \code|\min|, \code|\max|and \code|\lim|				
+
+		Stochastic operators: \code|\E|, \code|\Var| and \code|\Cov| \\
+
+		Transformations are usually set in italic letters: \code|\FT|, \code|\LT|, \code|\DFT|, \code|\ZT| and \code|\DTFT|
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Complex values}
+
+		Complex variable: \code|\cx z	|	
+
+		Complex conjugate: \code|\cxc z|
+
+		Imaginary: \code|\i| or \code|\j| or \code|\k| 	(hypercomplex)
+
+\end{sectionbox}
+
+\section{Macros}
+\begin{sectionbox}
+	\subsection{Own Macros for cheat sheets}
+			Arrows: $\ra, \Ra, \upa, \downa$
+\end{sectionbox}
+
+\begin{sectionbox}
+	\subsection{Own Macros in the \texttt{scientific} package}
+		\begin{tablebox}{ll}
+			Vectors and Matrices: & $\vec a = \vect{ 1 \\ 2}$ \quad $\ma M = \mat{1 & 2 \\ 3 & 4}$\\
+
+			Proper delta for differential equaions: & $\diff^3 x \diff y \diff z \frac{\diff f(x)}{\diff x}$ \\ \\
+
+			Functions:
+			SI Units: & $G =\SI{6,67e-11}{\kilogram\per\second\squared}$\\
+
+			Sets: & $\N \R \C$\\
+
+			Random variable: & $\X \Y \Z$\\
+
+			Stochastic: & $\P(\X = 3), \E(\X), \Var(\X)$\\
+		\end{tablebox}
+
+		Further information about the use of the \emph{scientific} package can be found in \emph{Scientific Package Documentation.pdf}
+\end{sectionbox}
+
+% note: there is no \capter because baseclass is scrartcl. Use \part
+% PART =======================================================================================
+%\part{Codebeispiele}	% will start new page and reset section counter
+% ============================================================================================
+
+
+% DOCUMENT_END =================================================================
+\end{document}

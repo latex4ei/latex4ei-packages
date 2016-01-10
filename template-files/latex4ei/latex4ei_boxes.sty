@@ -1,0 +1,190 @@
+%
+% Boxes for LaTeX4EI
+%
+% Authors: Emanuel Regnath, Martin Zellner
+% Contact: info@latex4ei.de
+% Version: 1.0
+% License: TBD
+% 
+% © 2011-2015, LaTeX4EI
+
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{latex4ei_boxes}[2015/02/06 Boxes for LaTeX4EI]
+
+
+% Packages
+% ----------------------------------------------------------------------
+\RequirePackage{mdframed}			% package to make frames for exaples, definitions and theorems
+\RequirePackage{latex4ei/latex4ei_colors} 	% color definitions
+
+
+% ======================================================================
+% Styles
+% ======================================================================
+
+% Set section spacings
+\RequirePackage{titlesec}
+\titlespacing{\subsection}{0em}{0.2em}{0.2em}%
+\titlespacing{\subsubsection}{0em}{0.2em}{0.2em}%
+
+% Basic box
+% ----------------------------------------------------------------------
+	\mdfdefinestyle{specialbox}{
+		% Outer Margins
+		leftmargin=0mm,
+		rightmargin=0mm,
+		startcode={\vspace{0.4em}},		% FIX: spacing bug on nested frames
+		endcode={\vspace{0.4em}},		% FIX: spacing bug on nested frames
+		skipabove=0mm,					% FIX: spacing bug on nested frames
+		skipbelow=0mm,					% FIX: spacing bug on nested frames
+		% inner margins
+		innertopmargin=1mm,
+		% frame
+		linewidth=0.3mm
+	}
+
+% Sectionbox: provides grey boxes for better readablitity of sections
+% ----------------------------------------------------------------------
+	\global\mdfdefinestyle{sectionbox}{
+		startcode={\makeatother\if@nobreak\vspace{3cm}\null\vspace{-3cm}\fi\makeatletter},		% FIX: breaks 3cm after section
+		nobreak=true,					% FIX: unwanted behavior with multicolumn
+		% Margin left, right, bottom and top of the boxes (-1 mm for higher width)
+		leftmargin=-1mm,
+		rightmargin=-1mm,
+		skipbelow=1mm,
+		skipabove=1mm,
+		% Inner margin of the content of the box
+		innerleftmargin=1mm,
+		innerrightmargin=1mm,
+		innertopmargin=1mm,
+		% Colors of lines and background
+		backgroundcolor=col_sectionbox!3,
+		linecolor=col_sectionbox
+	}
+
+% Emphbox: box with red line around for important definitions
+% ----------------------------------------------------------------------
+	\global\mdfdefinestyle{emphbox}{
+		% basic style
+		style=specialbox,
+		align=center,
+		% background color
+		backgroundcolor=lightyellow,
+		% frame color
+		linecolor=col_emphbox
+	}
+
+% Symbolbox
+% ----------------------------------------------------------------------
+	\global\mdfdefinestyle{symbolbox}{
+		% basic style
+		style=specialbox,
+		% background color
+		backgroundcolor=col_symbolbox!5,
+		% orange outer line
+		linecolor=col_symbolbox
+	}
+
+% Bluebox
+% ----------------------------------------------------------------------
+	\global\mdfdefinestyle{bluebox}{
+		% basic style
+		style=specialbox,
+		% show only top and bottom line
+		hidealllines=true, 
+		topline=true,
+		bottomline=true,
+		% background
+		backgroundcolor=col_cookbox!5,
+		% Line color
+		linecolor=col_cookbox,
+		% Title
+		frametitlerule=true,
+		frametitlebackgroundcolor=col_cookbox!5,
+		frametitlealignment=\centering,
+		frametitleaboveskip=1mm,
+		frametitlebelowskip=1mm
+	}
+
+% Tablebox
+% ----------------------------------------------------------------------
+	\global\mdfdefinestyle{tablebox}{
+		% basic style
+		style=specialbox,
+		% show only top and bottom line
+		hidealllines=true, 
+		topline=true,
+		bottomline=true,
+		% inner margin
+		innerleftmargin=0em,
+		innerrightmargin=0em,
+		% Color
+		backgroundcolor=col_table!5,
+		% Title
+		frametitlerule=true,
+		frametitlebackgroundcolor=col_table!5,
+		frametitleaboveskip=1mm,
+		frametitlebelowskip=1mm,
+		% line color
+		linecolor=col_table
+	}
+
+
+% ======================================================================
+% Environments
+% ======================================================================
+
+% sectionbox
+% ----------------------------------------------------------------------
+	\newmdenv[style=sectionbox]{sectionbox}
+
+% bluebox
+% ----------------------------------------------------------------------
+	\newmdenv[style=bluebox]{bluebox}
+
+% emphbox
+% ----------------------------------------------------------------------
+	\newmdenv[style=emphbox, startinnercode={\centering}]{emphbox}
+	\newmdenv[style=emphbox]{emphbox*}
+
+% symbolbox
+% ----------------------------------------------------------------------
+	\newmdenv[style=symbolbox]{symbolbox}
+
+% tablebox
+% ----------------------------------------------------------------------
+	\newmdenv[style=tablebox]{tableboxframe}
+	\newenvironment{tablebox}[1]{
+		% beginning
+		\setlength{\tabcolsep}{4pt}
+		\begin{tableboxframe}%[frametitle=\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}#1@{}}#2\end{tabular*}]
+			\begin{tabular*}{\columnwidth}{@{\extracolsep\fill}#1@{}}%
+	}{
+		%ending
+			\end{tabular*}%
+		\end{tableboxframe}
+	}
+	\newenvironment{tablebox*}[1]{
+		% beginning
+		\setlength{\tabcolsep}{4pt}
+		\begin{tableboxframe}
+		\centering
+			\begin{tabular}{@{}#1@{}}%
+	}{
+		%ending
+			\end{tabular}%
+		\end{tableboxframe}
+	}
+
+% cookbox
+% ----------------------------------------------------------------------
+	\newenvironment{cookbox}[1]{
+		\begin{bluebox}[frametitle=#1]
+			\begin{itemize}
+	}{
+			\end{itemize}
+		\end{bluebox}
+	}
+
+% Ende von \input
+\endinput

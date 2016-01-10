@@ -1,0 +1,203 @@
+% Technische Formelsammlung by Emu
+
+% Dokumenteinstellungen
+\documentclass[8pt,a5paper]{scrartcl}
+
+% Pakete laden
+\usepackage[a5paper]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}					% Deutsche Sprache und Silbentrennung
+\usepackage{multicol}			% ermöglicht Seitenspalten  
+\usepackage{booktabs}			% bessere Tabellenlinien
+\usepackage{enumitem}			% bessere Listen
+\usepackage{graphicx}			% Zum Bilder einfügen benötigt
+\usepackage{pbox}				%Intelligent parbox: \pbox{maximum width}{blabalbalb \\ blabal}
+\usepackage{hyperref}
+\usepackage{../template-files/latex4ei/scientific}			% Eigenes Paket
+
+% Dokumentbeschreibung
+% ======================================================================
+\title{\texttt{scientific.sty}}
+\author{LaTeX4EI Package}
+
+
+% Layout
+% ======================================================================
+% 15cm Breite(148mm), Höhe (210), Referenzpunkt 2,54cm
+\setlength{\oddsidemargin}{-1.0cm}			%Rand zur Buchmitte von links
+\setlength{\evensidemargin}{-1.6cm}			%Rand zur Buchmitte von links
+\setlength{\textwidth}{12.2cm}				%Rand nach außen
+
+
+%Überschreibungen
+\renewcommand{\arraystretch}{1.2}
+
+
+\renewcommand{\thesection}{}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+
+
+
+% Dokumentbeginn
+\begin{document}
+
+% Titel
+\maketitle
+
+
+% -------------------------------------------
+% | 			scientific.sty				|
+% ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+% =============================================================================================================================
+
+	\begin{quotation}
+		Das Paket \texttt{scientific.sty} erweitert den Funktionsumfang der Mathematikumgebung in \LaTeX. 
+		Es läd häufig benötigte Pakete und definiert Abkürzungen und wichtige Funktionen, um den Satz bestehender Befehle wie \verb#\sin, \max, ...# zu vervollständigen.
+		Ziel ist es mit dem Einbinden durch \verb#\usepackage{scientific}# eine solide und einfache Grundlage für wissenschaftliche Dokumentationen zu bieten ohne
+		dass der Autor eigene Macros schreiben muss.
+		Das Paket wurde von \href{www.latex4ei.de}{LaTeX4EI} erstellt. Es besteht keine Garantie auf Kompatibilität und korrekte Funktionsweise.
+	\end{quotation}
+
+
+
+	\subsection{Pakete}
+	Das Paket \verb#scientific# läd automatisch wichtige \LaTeX-Pakete. Diese können nach einbinden der \verb#scientific.sty# direkt verwendet werden und müssen nicht explizit geladen werden.\\
+	\begin{tabular}{ll}
+		\verb#amsmath# & Für erweiterte mahtematische Funktionen\\
+		\verb#amssymb# & Verschiedene Symbole\\
+		\verb#esint# & erweiterte Integralsymbole\\
+		\verb#xcolor# & Ermöglicht farbigen Text und Farbdefinitionen\\
+		\verb#mhchem# & Darstellung von chemischen Strukturformeln\\
+			& Beispiel: $\ce{2H3O+}$ \verb#\ce{2H3O+}#\\
+		\verb#siunitx# & SI gerechte Darstellung von Einheiten\\
+			& Beispiel: $\SI{3.5}{\meter\per\second}$ \verb#\SI{3.5}{\meter\per\second}#\\
+	\end{tabular}
+		
+		
+	Für eine genaue Beschreibung der einzelnen Pakete und deren zur Verfügung gestellten Funktionen, gibt es auf \href{www.ctan.org}{www.ctan.org} die entsprechende Dokumentation zu finden.
+
+
+	\subsection{Einheiten}
+	Das Paket \verb#siunitx# stellt Zahlen und Einheiten in SI gerechter Notation dar.
+	Die Hauptbefehle sind \verb#\num{<Zahl>}#, \verb#\si{<Einheit>}# und \verb#\SI{<Zahl>}{<Eineit>}#.
+	\verb#scientific# definiert noch \verb#\unitof{<Symbol>}#
+	Beispiele:\\
+	
+	\begin{tabular}{ll}
+		$\num{32334.124e-12}$ & \verb#\num{32334.124e-12}#\\
+		$\si{\kilogram \meter \per \ampere \second \squared }$ & \verb#\si{\kilogram \meter \per \ampere \second \squared}#\\
+		$\SI{3.4e2}{\mega \watt \hour}$ & \verb#\SI{3.4e2}{\mega \watt \hour}#\\
+		$\unitof{n_0} = \si{\per \centi \meter \cubed}$ & \verb#\unitof{n_0} = \si{\per \centi \meter \cubed}#\\
+	\end{tabular}\\
+	\\
+	Als Einheiten können alle SI Einheiten wie \verb#\farad, \angstrom, \day#, \ldots\ sowie alle Prefixe \verb#\kilo, \deka, \micro#, usw.
+	verwendet werden.
+	
+
+
+	\subsection{Neue Befehle}
+	Warum neue Befehle?
+	Auch wenn viele Formatierungen recht einfach mit den \LaTeX\ Grundbefehlen erreicht werden können, ist es sinnvoll für jeden Verwendungszweck eines Symbols einen eigene Befehl anzulegen. Viele Zeichen werden mit mehreren Bedeutungen vernküpft.
+	Außerdem ist es dadurch einfach eine Formatierung für das ganze Dokument an einer zentralen Stelle festzulegen. Nachträgliche Anpassungen müssen nicht an jeder Stelle extra geändert werden, sondern es reicht eine Änderung des eigenen Befehls. 
+	Sollten Sie im Paket \verb#scientific.sty# noch wichtige Funktionen/Formatierungen vermissen, dann lassen Sie es uns wissen.
+
+
+	\subsection{Differentielles Delta „$\mathrm{d}$“}
+	Das differentielle Delta ist eines der am häufigsten falsch dargestellten Zeichen. Es wird aufrecht geschrieben, mit kleinem Abstand zum vorherigen Term und keinem Abstand zur Variable.
+	Der einfache \LaTeX\ Code: \verb#\int x^2 dx# erzeugt $\int x^2 dx$. 
+	Das ist vielleicht noch vertretbar aber spätestens bei mehreren Variablen sieht das nicht mehr schön aus.
+	\verb#\int f(x,y) dx dy# erzeugt $\int f(x,y) dx dy$. Mit dem neuen Befehl \verb#\diff# wird das „d“ immer richtig dargestellt.\\
+	\\
+	Differentielles Delta \quad $\diff x$ \quad \verb#\diff x#\\ 
+	\\
+	Beispiel: $\diff^3 x \diff y \diff z \frac{\diff f(x)}{\diff x}$ \qquad \verb#\diff^3 x \diff y \diff z \frac{\diff f(x)}{\diff x}#\\
+	
+	\subsection{Vektoren und Matrizen}
+	Vektoren und Matrizen werden häufig in mathematischen Formeln genutzt. Deren Symbole sollten zum besseren Verständis durch spezielle Formatierungen von Symbolen für Variablen, Mengen, usw. abgegrenzt werden.\\
+	\\
+	\begin{tabular}{lll}
+		Vektorsymbol & $\vec a$ & \verb#\vec a#\\[0.5em]
+		Vektor & $\vect{ x_1 \\ x_2 }$ & \verb#\vect{ x_1 \\ x_2 }#\\[2em]
+		Matrixsymbol & $\ma A$ & \verb#\ma A#\\[0.5em]
+		Matrix	& $\mat{ 1 & 2 \\ 3 & 4}$ & \verb#\mat{ 1 & 2 \\ 3 & 4}#\\[2em]
+		Norm & $\norm{\vec a}$ & \verb#\norm{\vec a}#\\
+		Spur & $\Sp \ma A$ & \verb#\Sp \ma A#\\
+		Determinante & $\det \ma A$ & \verb#\det \ma A#\\
+	\end{tabular}
+	
+	
+
+
+
+	\subsection{Komplexe Zahlen}
+	\begin{tabular}{lll}
+		Menge der kompl. Zahlen & $\C$ & \verb#\C#\\
+		Komplexe Zahl & $\cx z$ & \verb#\cx z#\\
+		Hyperkomplexe Zahl & $\hx h$ & \verb#\hx h#\\
+		Imaginäre Einheiten & $\i \j \k$ & \verb#\i \j \k#\\
+		Komplex Konjugiert & $\cxc z$ & \verb#\cxc z#\\
+		Realteil & $\Re{a+b\i}$ & \verb#\Re{a+b\i}#\\
+		Imaginärteil & $\Im{a+b\i}$ & \verb#\Im{a+b\i}#\\
+	\end{tabular}
+
+	
+
+	\subsection{Mengen}
+	\begin{tabular}{lll}
+		Natürliche Zahlen & $\N$ & \verb#\N#\\
+		Reele Zahlen & $\R$ & \verb#\R#\\
+		Komplexe Zahlen & $\C$ & \verb#\C#\\
+		allg. Körper & $\K$ & \verb#\K#\\ 
+		Binäre Zahlen & $\B$ & \verb#\B#\\ \\
+		Vereinigung/OR & $\cupplus A$ & \verb#\cuplus#\\
+		Schnittmenge/AND & $\capdot B$ & \verb#\capdot#\\
+		Komplement & $A^\complement$ & \verb#A^\complement#\\
+		Das Innere & $\interior{A}$ & \verb#\interior{A}#\\
+		Landau & $\O$ & \verb#\O#\\
+	\end{tabular}
+
+	
+
+
+	\subsection{Funktionen}
+	\begin{tabular}{lll}
+		Constant & $\const$ & \verb#\const#\\
+		Sinus Cardinalis & $\sinc$ & \verb#\sinc#\\
+		Triangular & $\tri$ & \verb#\tri#\\
+		Rectangle & $\rect$ & \verb#\rect#\\
+		Dirac & $\dirac$ & \verb#\dirac#\\
+		Heaviside & $\heavi$ & \verb#\heavi#\\
+		Gradient & $\grad$ & \verb#\grad#\\
+		Divergenz & $\div$ & \verb#\div#\\
+		Rotation & $\rot$ & \verb#\rot#\\
+		Laplaceoperator & $\lpo$ & \verb#\lpo#\\
+		Wellenoperator & $\waveop$ & \verb#\waveop#\\
+	\end{tabular}
+
+
+	\subsection{Stochastik}
+	\begin{tabular}{lll}
+		Wahrscheinlichkeit & $\P$ & \verb#\P#\\
+		Zufallsvariablen & $\X \Y \Z$ & \verb#\X \Y \Z#\\
+		Erwartungswert & $\E$ & \verb#\E#\\
+		Varianz & $\Var$ & \verb#\Var#\\
+		Covarianz & $\Cov$ & \verb#\Cov#\\
+	\end{tabular}
+
+
+
+	\subsection{Spektralanalyse}
+	\begin{tabular}{lll}
+		Fourier-trans. & $\FT$ & \verb#\FT#\\
+		Zeitdiskrete FT & $\DTFT$ & \verb#\DTFT#\\
+		Laplace-trans. & $\LT$ & \verb#\LT#\\
+		Z-trans & $\ZT$ & \verb#\ZT#\\
+		Diskrete FT & $\DFT$ & \verb#\DFT#\\
+	\end{tabular}
+
+
+	\subsection{Sonstiges}
+	Römische Zahlen \quad $\rom{iv},\rom{IV}$ \quad \verb#\rom{iv},\rom{IV}#
+
+		
+\end{document}
