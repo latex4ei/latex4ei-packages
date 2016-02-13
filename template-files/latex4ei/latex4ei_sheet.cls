@@ -142,8 +142,8 @@
 
 	%\titlespacing{Überschriftart}{keine Ahnung}{Abstand oberhalb}{Abstand unterhalb}
 	\titlespacing{\section}{0em}{1.0em}{0.1em}
-	\titlespacing{\subsection}{0em}{0em}{-0.2em}
-	\titlespacing{\subsubsection}{0em}{0em}{-0.5em}
+	\titlespacing{\subsection}{0em}{0.2em}{-0.2em}
+	\titlespacing{\subsubsection}{0em}{0em}{-0.3em}
 
 % Paragraphs
 % ----------------------------------------------------------------------
@@ -165,7 +165,7 @@
 % Environments
 % ======================================================================
 	\setlength{\itemindent}{0em}
-	\setlength\leftmargini{1.0em}
+	\setlength\leftmargini{2.0em}
 	\setlength\itemsep{0em}
 
 
