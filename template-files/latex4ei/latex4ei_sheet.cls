@@ -165,7 +165,7 @@
 % Environments
 % ======================================================================
 	\setlength{\itemindent}{0em}
-	\setlength\leftmargini{2.0em}
+	\setlength\leftmargini{1.7em}
 	\setlength\itemsep{0em}
 
 
