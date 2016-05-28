@@ -92,10 +92,11 @@
 % ======================================================================
 
 	% basic math
-	\newcommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}} 				% Abrunden
-	\newcommand{\ceil}[1]{\ensuremath{\left\lceil {#1} \right\rceil}}				% Aufrunden
-	\newcommand{\sprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle }}			% scalar product
-	\newcommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} 						% absolute value)
+	\providecommand{\hateq}{\ensuremath{\stackrel{\wedge}{=}}} 				% Entspricht
+	\providecommand{\floor}[1]{\ensuremath{\left\lfloor#1\right\rfloor}} 				% Abrunden
+	\providecommand{\ceil}[1]{\ensuremath{\left\lceil {#1} \right\rceil}}				% Aufrunden
+	\providecommand{\sprod}[2]{\ensuremath{\left\langle #1, #2 \right\rangle }}			% scalar product
+	\providecommand{\abs}[1]{\ensuremath{\left\vert#1\right\vert}} 						% absolute value)
 	\DeclareMathOperator{\const}{const.}											% constant
 	\DeclareMathOperator{\sgn}{sgn}													% signum
 	\DeclareMathOperator{\ld}{ld}													% log_2
