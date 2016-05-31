@@ -1,15 +1,15 @@
 %
-% Layout, Macros for LaTeX4EI		
+% Layout, Macros for LaTeX4EI
 %
 % Authors: Emanuel Regnath, Martin Zellner
 % Contact: info@latex4ei.de
 % Version: 1.0
 % License: CC-BY-NC-SA
-% 
+%
 % © 2011-2015, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{latex4ei_fs}[2014/03/30 Cheet Sheet Template from LaTeX4EI]
+\ProvidesClass{latex4ei_sheet}[2014/03/30 Cheet Sheet Template from LaTeX4EI]
 
 % ======================================================================
 % Options
@@ -42,10 +42,10 @@
 	% define baseclass
 	\def\baseclass{scrartcl}
 
-	% set default options for base class 
+	% set default options for base class
 	\PassOptionsToClass{6pt, a4paper, landscape}{\baseclass}
 
-% forward unknown options to class 
+% forward unknown options to class
 % ----------------------------------------------------------------------
 	\DeclareOption*{%
 		\PassOptionsToClass{\CurrentOption}{\baseclass}%
@@ -106,7 +106,7 @@
 	\renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
 	\renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
 
-	\fancyfoot[R]{\EngGer{Last revised}{Stand}: \today \qquad \thepage/\pageref{LastPage}}
+	\fancyfoot[R]{\EngGer{Last revised}{Stand}: \themydate \qquad \thepage/\pageref{LastPage}}
 	\fancyfoot[L]{Homepage: \url{\thewebsite} -- \EngGer{Please report mistakes \emph{immediately}}{Fehler bitte \emph{sofort} melden}.}
 
 
@@ -115,7 +115,7 @@
 	\providecommand{\fstitle}[1]{
 		\vspace{-20mm}{
 		\parbox{2.3cm}{
-			\includegraphics[height=1.4cm]{Logo.pdf}		
+			\includegraphics[height=1.4cm]{Logo.pdf}
 		}
 		\parbox{4cm}{
 			\huge\textbf{#1}
@@ -139,6 +139,7 @@
 	%\titleformat{\chapter}{\huge \bfseries}{\thechapter}{0em}{\huge \bfseries}
 	\titleformat{\section}{\Large\bfseries\color{col_section}}{\thesection .}{0.5em}{\color{col_section}}%[\color{col_section} \hrule \hrule]
 	\titleformat{\subsection}{\large\bfseries\color{col_subsection}}{\thesubsection .}{0.3em}{}
+	\titleformat{\subsubsection}{\bfseries\color{col_subsubsection}}{\thesubsubsection .}{0.2em}{}
 
 	%\titlespacing{Überschriftart}{keine Ahnung}{Abstand oberhalb}{Abstand unterhalb}
 	\titlespacing{\section}{0em}{1.0em}{0.1em}
@@ -206,7 +207,7 @@
 	\colorlet{col_topicbox}{black}
 	\colorlet{col_symbolbox}{black}
 	\colorlet{col_cookbox}{black}
-	
+
 	\colorlet{col_table}{black}
 \fi
 

@@ -1,9 +1,9 @@
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
-% LaTeX4EI Example for Cheat Sheets 									
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
+% LaTeX4EI Example for Cheat Sheets
 %
 % @encode: 	UTF-8, tabwidth = 4, newline = LF
-% @author:	LaTeX4EI		
-% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % 
+% @author:	LaTeX4EI
+% % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % % %
 
 
 % ======================================================================
@@ -45,17 +45,20 @@ Unicode Tests:\\
 		$x$ & $0$ & $\pi / 6$ & $\pi / 4$ & $\pi / 3$ & $\frac{1}{2}\pi$ & $\pi$ & $1\frac{1}{2}\pi$ & $2 \pi$ \\
 		$\scriptstyle{ \varphi }$ & $\scriptstyle{0^\circ}$ & $\scriptstyle{30^\circ}$ & $\scriptstyle{45^\circ}$ & $\scriptstyle{60^\circ}$ & $\scriptstyle{90^\circ}$ & $\scriptstyle{180^\circ}$ & $\scriptstyle{270^\circ}$ & $\scriptstyle{360^\circ}$ \\ \cmrule
 		$\sin$ & $0$ & $\frac{1}{2}$ & $\frac{1}{\sqrt{2}}$ & $\frac{\sqrt 3}{2}$ & $1$ & $0$ & $-1$ & $0$ \\
-		$\cos$ & $1$ & $\frac{\sqrt 3}{2}$ & $\frac{1}{\sqrt 2}$ & $\frac{1}{2}$ & $0$ & $-1$ & $0$ & $1$ \\     
-		$\tan$ & $0$ & $\frac{\sqrt{3}}{3}$ &	$1$	&	$\sqrt{3}$ & $\pm \infty$ & $0$ & $\mp \infty$ & $0$\\ 
+		$\cos$ & $1$ & $\frac{\sqrt 3}{2}$ & $\frac{1}{\sqrt 2}$ & $\frac{1}{2}$ & $0$ & $-1$ & $0$ & $1$ \\
+		$\tan$ & $0$ & $\frac{\sqrt{3}}{3}$ &	$1$	&	$\sqrt{3}$ & $\pm \infty$ & $0$ & $\mp \infty$ & $0$\\
 	\end{tablebox}
-\end{sectionbox}
 
-\begin{sectionbox}
 	\subsection{$2 \times 2$ Matrix}
 	$\ma A = \mat{a & b\\ c & d}$ \quad\ $\ma A^{-1} = \frac{1}{\det \ma A} \mat{d & -b\\ -c& a}$ \quad\ \parbox{1.9cm}{ $\det(\ma A) = ad-bc$ \\[0.5em] $\Sp(\ma A) = a+d$ } \\
 	\\
 	\\
 	Eigenwerte $\displaystyle \lambda_{1/2} = \frac{\Sp \ma A}{2} \pm \sqrt{ \left( \frac{\Sp \ma A}{2} \right)^2 - \det \ma A }$
+
+	\begin{cookbox}{Eigenwertzerlegung}
+		\item Schritt 1
+		\item Schritt 2
+	\end{cookbox}
 \end{sectionbox}
 
 
@@ -63,7 +66,7 @@ Unicode Tests:\\
 	\subsection{Fouriertransformation}
 	\begin{emphbox}
 		$\displaystyle \underset{\text{Zeitbereich}}{\large f(t)} \FT \underset{\text{Frequenzspektrum}}{\large F(\omega)} := \int\limits_{-\infty}^\infty f(t) \exp(-\i \omega t) \diff t$
-	\end{emphbox} 
+	\end{emphbox}
 	Anmerkung: Es gibt unterschiedliche Normungen ($1, \frac{1}{\sqrt{2\pi}}$)\\
 \end{sectionbox}
 
@@ -93,7 +96,7 @@ Unicode Tests:\\
 		\textsc{Boltzmann}-Konst. & $\kB \approx \SI{1.380 655e-23}{\joule\per\kelvin}$\\
 	\end{tabular}
 \end{symbolbox}
-	
+
 \begin{sectionbox}
 	\subsection{Einheitpräfixe}
 	\begin{tablebox}{l | ccccccccc}
@@ -101,10 +104,10 @@ Unicode Tests:\\
 		$+$			& $\underset{\ir zetta}{\si{\zetta}}$ & $\underset{\ir exa}{\si{\exa}}$ & $\underset{\ir peta}{\si{\peta}}$	& $\underset{\ir tera}{\si{\tera}}$ & $\underset{\ir giga}{\si{\giga}}$ & $\underset{\ir mega}{\si{\mega}}$ & $\underset{\ir kilo}{\si{\kilo}}$ & $\underset{\ir hecto}{\si{\hecto}}$ & $\underset{\ir deca}{\si{\deca}}$ \\
 		$-$ 		& $\underset{\ir zepto}{\si{\zepto}}$ & $\underset{\ir atto}{\si{\atto}}$ & $\underset{\ir femto}{\si{\femto}}$ & $\underset{\ir pico}{\si{\pico}}$ & $\underset{\ir nano}{\si{\nano}}$ & $\underset{\ir micro}{\si{\micro}}$ & $\underset{\ir milli}{\si{\milli}}$  & $\underset{\ir centi}{\si{\centi}}$& $\underset{\ir deci}{\si{\deci}}$
 	\end{tablebox}
-\end{sectionbox}	
+\end{sectionbox}
 
 
-\begin{sectionbox}	
+\begin{sectionbox}
 	\subsection{Maxwellsche Gleichungen (Naturgesetze)}
 	\begin{emphbox}
 		\begin{tabular}{ll}
@@ -157,7 +160,7 @@ Unicode Tests:\\
 \begin{sectionbox}
 
 	\subsection{Bleibatterie}
-	
+
 		\subsubsection{Reaktion an der positiven Elektrode}
 		\begin{center}
 			\boxed{$\ce{PbO2 + 3H+ +HSO4- +2e- <=>[\text{disch.}][\text{charge}] PbSO4 + 2H2O}$}

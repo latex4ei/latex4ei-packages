@@ -5,7 +5,7 @@
 % Contact: info@latex4ei.de
 % Version: 1.0
 % License: TBD
-% 
+%
 % © 2011-2015, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}
@@ -35,26 +35,26 @@
 	% Check compiler. Hint: delete aux files if changing the compiler
 	\ifxetex%
 		%\@namedef{ver@fixltx2e.sty}{9999/12/31}%
-		
+
 		%XeLaTeX
 		\PassOptionsToPackage{no-math}{fontspec}
 	    \RequirePackage{xltxtra}
 	    \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
-		
+
 		% for unicode decalarations
 		%\let\DeclareUnicodeCharacter\newunicodechar
 		\setmainfont{Times New Roman}
 		\setromanfont{Times New Roman}
 		\setsansfont{Helvetica}
-		
+
 		% some hacking for scientific.sty
 		\AtBeginDocument{
 			\renewcommand{\C}{\mathbb C}
-			\renewcommand{\B}{\mathbb B}	
+			\renewcommand{\B}{\mathbb B}
 		}
 	\else
-		% pdfLaTeX  
-	    \RequirePackage[utf8]{inputenc}		% UTF-8 input 
+		% pdfLaTeX
+	    \RequirePackage[utf8]{inputenc}		% UTF-8 input
 	    \RequirePackage{latex4ei/latex4ei_unicode}	% UTF-8 input of math symbols
 	    \InputIfFileExists{glyphtounicode}{\pdfgentounicode=1}{}	% Glyph-to-Unicode Translation (needs PdfTex >=1.4)
 		%\RequirePackage{textcomp}				% get rid of font warnings
@@ -74,7 +74,7 @@
 	\interfootnotelinepenalty=9999    % Almost never break footnotes.
 
 
-	% Save \title, \author, \date before \maketitle 
+	% Save \title, \author, \date before \maketitle
 	\RequirePackage[pagebackref=true,pdfpagelabels]{hyperref}
 
 	% Title
@@ -100,7 +100,7 @@
 	}
 
 	% Date
-	\global\let\thedate\@date 
+	\global\let\thedate\@date
 	\renewcommand{\date}[1]{%
 		\gdef\@date{#1}%
 		\gdef\thedate{#1}
@@ -111,18 +111,21 @@
 	\providecommand{\myemail}[1]{\gdef\theemail{#1}}
 	% Web page
 	\providecommand{\mywebsite}[1]{\gdef\thewebsite{#1}}
+	% Date with git commit number
+	\providecommand{\mydate}[1]{\gdef\themydate{#1}}
 
 	% set defaults
 	\author{LaTeX4EI}
 	\title{A LaTeX4EI Document}
 	\myemail{info@latex4ei.de}
 	\mywebsite{www.latex4ei.de}
+	\mydate{\today}
 
 
 	\AtBeginDocument{
 		% set pdfoptions
 		\hypersetup{
-			pdftitle={\thetitle},    
+			pdftitle={\thetitle},
 	        pdfauthor={\theauthor},
 	        pdfcreator={LaTeX4EI template (www.latex4ei.de)},
 	        pdfkeywords={latex4ei}
@@ -160,12 +163,12 @@
 	\colorlet{col_section}{tum_blue_dark}
 	\colorlet{col_subsection}{tum_blue_dark}
 	\colorlet{col_subsubsection}{black}
-	
+
 	\colorlet{col_link}{tum_blue_dark}
 	\colorlet{col_table}{tum_blue_dark}
 	\colorlet{col_figure}{tum_blue_dark}
 	\colorlet{col_itemize}{tum_blue_dark}
-	
+
 	\colorlet{col_lst}{tum_blue_dark}
 	\colorlet{col_lst_keyword}{tum_blue}
 	\colorlet{col_lst_comment}{tum_green_leaf}
@@ -183,7 +186,7 @@
 	\colorlet{col_table}{black}
 	\colorlet{col_figure}{black}
 	\colorlet{col_itemize}{black}
-	
+
 	\colorlet{col_lst}{black}
 	\colorlet{col_lst_keyword}{black}
 	\colorlet{col_lst_comment}{tum_gray}
@@ -222,7 +225,7 @@
 	\providecommand{\Ra}{\ensuremath{\Rightarrow}}								% Rightarrow
 	\providecommand{\ra}{\ensuremath{\rightarrow}} 								% Rightarrow
 	\providecommand{\lra}{\ensuremath{\longrightarrow}} 						% Longrightarrow
-	\providecommand{\upa}{\ensuremath{\uparrow}} 
+	\providecommand{\upa}{\ensuremath{\uparrow}}
 	\providecommand{\downa}{\ensuremath{\downarrow}}
 	\providecommand{\bdot}{\ensuremath{\boldsymbol \cdot}} 						% Thick dot for vector product
 	\providecommand{\svdots}{\ensuremath{\olddot :}}							% Small vertical dots
@@ -238,7 +241,7 @@
 	\makeatletter
 	\providecommand{\todo}[1]{%
 	\textcolor{red}{\bf ToDo:\@ifundefined{@captype}{\marginpar{\color{red}\bf ToDo!}}{\relax} #1} %check for float environments
-	}  
+	}
 	\makeatother
 
 	% Special term
