@@ -15,6 +15,7 @@
 % Packages
 % ----------------------------------------------------------------------
 \RequirePackage{mdframed}			% package to make frames for exaples, definitions and theorems
+\RequirePackage{enumitem}
 \RequirePackage{latex4ei/latex4ei_colors} 	% color definitions
 
 
@@ -175,7 +176,7 @@
 % ----------------------------------------------------------------------
 	\newenvironment{cookbox}[1]{
 		\begin{bluebox}[frametitle=#1]
-			\begin{enumerate}
+			\begin{enumerate}[label=\bfseries\arabic*.]
 	}{
 			\end{enumerate}
 		\end{bluebox}
