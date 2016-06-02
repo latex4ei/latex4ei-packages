@@ -140,11 +140,13 @@
 	\titleformat{\section}{\Large\bfseries\color{col_section}}{\thesection .}{0.5em}{\color{col_section}}%[\color{col_section} \hrule \hrule]
 	\titleformat{\subsection}{\large\bfseries\color{col_subsection}}{\thesubsection .}{0.3em}{}
 	\titleformat{\subsubsection}{\bfseries\color{col_subsubsection}}{\thesubsubsection .}{0.2em}{}
+	\titleformat{\paragraph}{\bfseries\color{col_paragraph}}{\theparagraph .}{0.2em}{}
 
 	%\titlespacing{Überschriftart}{keine Ahnung}{Abstand oberhalb}{Abstand unterhalb}
 	\titlespacing{\section}{0em}{1.0em}{0.1em}
 	\titlespacing{\subsection}{0em}{0.2em}{-0.2em}
 	\titlespacing{\subsubsection}{0em}{0em}{-0.3em}
+	\titlespacing{\paragraph}{0em}{0em}{-0.3em}
 
 % Paragraphs
 % ----------------------------------------------------------------------
