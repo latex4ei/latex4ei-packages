@@ -1,4 +1,9 @@
 # LaTeX4EI Template
+[![Build Status](https://travis-ci.org/latex4ei/latex4ei-packages.svg?branch=master)](https://travis-ci.org/latex4ei/latex4ei-packages)
+[![Join the chat at https://gitter.im/LaTeX4Ei/Lobby](https://badges.gitter.im/LaTeX4Ei/Lobby.svg)](https://gitter.im/LaTeX4Ei/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![GitHub release](https://img.shields.io/github/release/latex4ei/latex4ei-packages.svg)](https://github.com/latex4ei/latex4ei-packages/releases/latest)
+[![Github Releases](https://img.shields.io/github/downloads/latex4ei/latex4ei-packages/latest/total.svg)](https://github.com/latex4ei/latex4ei-packages/releases/latest)
+
 Write beautiful latex cheat sheets with minimal effort.
 
 ## How to use
