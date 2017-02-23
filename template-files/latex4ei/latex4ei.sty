@@ -9,7 +9,7 @@
 % © 2011-2015, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{latex4ei}[2013/05/06 Macros for LaTeX4EI]
+\ProvidesPackage{latex4ei/latex4ei}[2013/05/06 Macros for LaTeX4EI]
 
 % Options
 % ----------------------------------------------------------------------
@@ -38,17 +38,25 @@
 
 		%XeLaTeX
 		\PassOptionsToPackage{no-math}{fontspec}
-	    \RequirePackage{xltxtra}
-	    \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+		\usepackage{unicode-math}
+		\providecommand{\ocirc}{o}
+		\providecommand{\mathring}{o}
 
+	    %\RequirePackage{xltxtra}
+
+		
 		% for unicode decalarations
 		%\let\DeclareUnicodeCharacter\newunicodechar
-		\setmainfont{Times New Roman}
-		\setromanfont{Times New Roman}
+		\setmainfont{Times New Roman}    % Libertinus Serif
+		\setromanfont{Times New Roman}   % Libertinus Serif
 		\setsansfont{Helvetica}
 
 		% some hacking for scientific.sty
 		\AtBeginDocument{
+		
+			% scale fonts to same x height
+		    \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
+
 			\renewcommand{\C}{\mathbb C}
 			\renewcommand{\B}{\mathbb B}
 		}
@@ -237,17 +245,20 @@
 % ----------------------------------------------------------------------
 
 	% Define BibTeX command
-	\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+	\def\BibTeX{{\rmfamily B\kern-.05em{\sc i\kern-.025em b}\kern-.08em T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 
 	% ToDo Command
 	\makeatletter
 	\providecommand{\todo}[1]{%
-	\textcolor{red}{\bf ToDo:\@ifundefined{@captype}{\marginpar{\color{red}\bf ToDo!}}{\relax} #1} %check for float environments
-	}
+	\textcolor{red}{\bfseries ToDo:\@ifundefined{@captype}{\marginpar{\color{red}\bfseries ToDo!}}{\relax} #1} %check for float environments
+	}  
 	\makeatother
 
 	% Special term
 	\providecommand{\term}[1]{\textit{#1}}
+
+	% small note
+	\providecommand{\note}[1]{\textit{Note: #1}}	
 
 	% Related work
 	\providecommand{\work}[1]{\textit{#1}}
@@ -257,17 +268,19 @@
 
 % References and Links
 % ----------------------------------------------------------------------
+	
+	\providecommand{\sectionname}{Section}
 
 	% several ref macros
 	\providecommand\figureref[1]{\hyperref[#1]{\figurename~\ref*{#1}}}
-	\providecommand\figurepageref[1]{\figureref{#1}(p.~\pageref{figure:#1})}
+	\providecommand\figurepageref[1]{\figureref{#1}~(p.~\pageref{#1})}
 	\providecommand\tableref[1]{\hyperref[#1]{\tablename~\ref*{#1}}}
-	\providecommand\tablepageref[1]{\tableref{#1}(p.~\pageref{table:#1})}
-	\providecommand\sourcecoderef[1]{\hyperref[#1]{\lstlistingname~\ref*{#1}}}
-	\providecommand\sourcecodepageref[1]{\sourcecoderef{#1}(p.~\pageref{sourcecode:#1})}
-	\providecommand\chapterref[1]{\chaptername~\ref*{\chaptername:#1}(p.~\pageref{chapter:#1})}
-	\providecommand\sectionref[1]{\textsection~\ref*{section:#1}(p.~\pageref{section:#1})}
-	\providecommand\appendixref[1]{\appendixname~\ref*{appendix:#1}(p.~\pageref{appendix:#1})}
+	\providecommand\tablepageref[1]{\tableref{#1}~(p.~\pageref{#1})}
+	\providecommand\listingref[1]{\hyperref[#1]{\lstlistingname~\ref*{#1}}}
+	\providecommand\listingpageref[1]{\listingref{#1}~(p.~\pageref{#1})}
+	\providecommand\chapterref[1]{\chaptername~\ref*{#1}~(p.~\pageref{#1})}
+	\providecommand\sectionref[1]{\hyperref[#1]{\sectionname~\ref*{#1}~(p.~\pageref{#1})}}
+	\providecommand\appendixref[1]{\appendixname~\ref*{#1}~(p.~\pageref{#1})}
 
 
 	% break also on hyphens inside the \url command
@@ -308,11 +321,11 @@
 % ----------------------------------------------------------------------
 	\RequirePackage{listings}
 	\lstset{
-	    basicstyle=\normalsize\tt\lst@ifdisplaystyle\small\fi,
+	    basicstyle=\normalsize\ttfamily\lst@ifdisplaystyle\small\fi,
 	    tabsize=4,
 	    %gobble=auto,				% skip initial tabs %not supported yet
 	    numbers=none,				% switch numbers on: left
-	    numberstyle=\tiny\sf\color{col_lst_number},
+	    numberstyle=\tiny\sffamily\color{col_lst_number},
 	    numbersep=1em,
 	    keepspaces=true,
 	    keywordstyle=\color{tum_blue_dark},

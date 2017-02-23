@@ -1,0 +1,125 @@
+
+
+% common abbreviations:
+% ======================================================================
+\renewcommand*\acronymname{List of Abbreviations}
+
+\newacronym{AGL}{AGL}{Above Ground Level}
+\newacronym{AMSL}{AMSL}{Above Mean Sea Level}
+
+\newacronym{API}{API}{Application Programming Interface}
+\newacronym{BIOS}{BIOS}{Basic Input/Output System}
+\newacronym{CPU}{CPU}{Central Processing Unit}
+
+
+\newacronym{FSM}{FSM}{Finite State Machine}
+\newacronym{GDB}{GDB}{GNU Debugger}
+\newacronym{GPS}{GPS}{Global Positioning System}
+\newacronym{GUI}{GUI}{Graphical User Interface}
+
+\newacronym{IEEE}{IEEE}{Institute of Electrical and Electronic Engineers}
+\newacronym{IDE}{IDE}{Integrated Development Environment}
+\newacronym{IRQ}{IRQ}{Interrupt Request}
+\newacronym{ISR}{ISR}{Interrupt Service Routine}
+
+\newacronym{JTAG}{JTAG}{Joint Test Action Group}
+
+\newacronym{LUT}{LUT}{Look-Up Table}
+
+\newacronym{MCU}{MCU}{Micro Controller Unit}
+\newacronym{RAM}{RAM}{Random Access Memory}
+\newacronym{ROM}{ROM}{Read-Only Memory}
+
+\newacronym{OOP}{OOP}{Object Oriented Programming}
+\newacronym{OS}{OS}{Operating System}
+\newacronym{PCB}{PCB}{Printed Circuit Board}
+\newacronym{RTOS}{RTOS}{Real-Time Operating System}
+\newacronym{RTE}{RTE}{Run-Time Environment}
+
+
+\newacronym{SIL}{SIL}{Safety Integrity Level}
+\newacronym{USB}{USB}{Universal Serial Bus}
+
+\newacronym{WCET}{WCET}{Worst Case Execution Time}
+
+% special abbreviations
+\newacronym{FAA}{FAA}{Federal Aviation Administration}
+\newacronym{ESC}{ESC}{Electronic speed control}
+
+
+% hardware abbr
+\newacronym{FC}{FC}{Flight Controller}
+
+\newacronym{DMA}{DMA}{Direct Memory Access}
+\newacronym{GPIO}{GPIO}{General Purpose Input Output}
+\newacronym{I2C}{I2C}{Inter-Integrated Circuit}
+\newacronym{SPI}{SPI}{Serial Peripheral Interface}
+\newacronym{SWD}{SWD}{Serial Wire Debug}
+\newacronym{UART}{UART}{Universal Asynchronous Receiver Transmitter}
+
+\newacronym{PWM}{PWM}{Pulse Width Modulation}
+
+\newacronym{HAA}{HAA}{Hardware Abstraction Architecture}
+\newacronym{HAL}{HAL}{Hardware Abstraction Layer}
+\newacronym{HPL}{HPL}{Hardware Presentation Layer}
+\newacronym{HIL}{HIL}{Hardware Interface Layer}
+
+
+% software development
+\newacronym{LSP}{LSP}{Liskov Substitution Principle}
+\newacronym{HLR}{HLR}{High Level Requirements}
+\newacronym{LLR}{LLR}{Low Level Requirements}
+\newacronym{VV}{V\;\&\;V}{Validation and Verification}
+
+\newacronym{}{}{}
+
+% move some terms to hidden
+\newignoredglossary{hidden}
+\glsmoveentry{DMA}{hidden}
+\glsmoveentry{GUI}{hidden}
+\glsmoveentry{VV}{hidden}
+\glsmoveentry{ISR}{hidden}
+\glsmoveentry{GDB}{hidden}
+\glsmoveentry{PCB}{hidden}
+
+
+% nomenclature:
+% ======================================================================
+\newglossary{symbols}{sym}{sbl}{List of Symbols}
+
+% add unit column
+\glsaddkey{unit}{\glsentrytext{\glslabel}}{\glsentryunit}{\GLsentryunit}{\glsunit}{\Glsunit}{\GLSunit}
+
+
+\newglossaryentry{kb}{
+	type=symbols,
+	name=$\mathrm{k}_{\mathrm{B}}$,
+	unit={},
+	description={Boltzmann Constant, $\mathrm{k}_{\mathrm{B}} = \SI{1.38064852e-23}{\meter\squared\kilo\gram\per\second\squared\kelvin}$},
+}
+
+
+
+% glossary terms
+% ======================================================================
+\newglossary{terms}{ter}{tms}{List of Terms}
+
+\newglossaryentry{ARM}{
+	type=terms,
+	name=ARM,
+	description={is a software design company and supplies intellectual property for microprocessors.},
+}
+
+
+\newglossaryentry{firmware}{
+	type=terms,
+	name=firmware,
+	description={Software that is required to interface (one) specific hardware (e.g. BIOS).},
+}
+
+\newglossaryentry{subprogram}{
+	type=terms,
+	name=subprogram,
+	description={an encapsulated part of the whole program.},
+}
+
