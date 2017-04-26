@@ -177,8 +177,8 @@
 		%\titlespacing*{ command }{ left }{ beforesep }{ aftersep }[ right ]
 
 
-		\titleformat{\section}{\sf\bfseries\LARGE\color{col_section}}{\thesection.\ }{0em}{}
-		\titleformat{\subsection}{\sf\bfseries\Large\color{col_subsection}}{\thesubsection.\ }{0em}{}
+		\titleformat{\section}{\sffamily\bfseries\LARGE\color{col_section}}{\thesection.\ }{0em}{}
+		\titleformat{\subsection}{\sffamily\bfseries\Large\color{col_subsection}}{\thesubsection.\ }{0em}{}
 		\titleformat{\subsubsection}{\scshape\large\color{col_subsubsection}}{\thesubsubsection.\ }{0em}{}
 
 
