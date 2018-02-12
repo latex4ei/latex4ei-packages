@@ -3,10 +3,10 @@
 %
 % Authors: Emanuel Regnath, Martin Zellner
 % Contact: info@latex4ei.de
-% Version: 1.0
+% Version: 1.1
 % License: TBD
 %
-% © 2011-2015, LaTeX4EI
+% © 2011-2018, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{latex4ei/latex4ei}[2013/05/06 Macros for LaTeX4EI]
@@ -44,7 +44,7 @@
 
 	    %\RequirePackage{xltxtra}
 
-		
+
 		% for unicode decalarations
 		%\let\DeclareUnicodeCharacter\newunicodechar
 		\setmainfont{Times New Roman}    % Libertinus Serif
@@ -53,7 +53,7 @@
 
 		% some hacking for scientific.sty
 		\AtBeginDocument{
-		
+
 			% scale fonts to same x height
 		    \defaultfontfeatures{Scale=MatchLowercase,Mapping=tex-text}
 
@@ -251,14 +251,14 @@
 	\makeatletter
 	\providecommand{\todo}[1]{%
 	\textcolor{red}{\bfseries ToDo:\@ifundefined{@captype}{\marginpar{\color{red}\bfseries ToDo!}}{\relax} #1} %check for float environments
-	}  
+	}
 	\makeatother
 
 	% Special term
 	\providecommand{\term}[1]{\textit{#1}}
 
 	% small note
-	\providecommand{\note}[1]{\textit{Note: #1}}	
+	\providecommand{\note}[1]{\textit{Note: #1}}
 
 	% Related work
 	\providecommand{\work}[1]{\textit{#1}}
@@ -268,7 +268,7 @@
 
 % References and Links
 % ----------------------------------------------------------------------
-	
+
 	\providecommand{\sectionname}{Section}
 
 	% several ref macros

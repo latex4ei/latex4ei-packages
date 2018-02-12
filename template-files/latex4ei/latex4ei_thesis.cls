@@ -1,12 +1,12 @@
 %
-% Thesis class from LaTeX4EI		
+% Thesis class from LaTeX4EI
 %
 % Authors: Emanuel Regnath, Martin Zellner
 % Contact: info@latex4ei.de
-% Version: 1.0
+% Version: 1.1
 % License: TBD
-% 
-% © 2011-2015, LaTeX4EI
+%
+% © 2011-2018, LaTeX4EI
 
 
 % ToDo:
@@ -33,7 +33,7 @@
 	% define baseclass
 	\def\baseclass{scrreprt}
 
-	% Options 
+	% Options
 	\newif\ifmarginnumbers\marginnumbersfalse
 	\DeclareOption{marginnumbers}{\marginnumberstrue}
 
@@ -51,7 +51,7 @@
 	% set default options for base class
 	\PassOptionsToClass{a4paper, 11pt}{\baseclass}
 
-	% pass unknown options to base class 
+	% pass unknown options to base class
 	\DeclareOption*{%
 		\PassOptionsToClass{\CurrentOption}{\baseclass}%
 	}
@@ -94,10 +94,10 @@
 	% fix for footnotes in tables
 	\RequirePackage{footnote}
 	\makesavenoteenv{tabular}
-	\makesavenoteenv{table} 
+	\makesavenoteenv{table}
 	%\shorthandoff{"} 					% don't convert "A to Ä!
-	
-	
+
+
 	% font
 	%\RequirePackage[osf]{mathpazo}			% old style numbering
 	%\renewcommand{\rmdefault}{ppl}				% cmr, ptm, ppl, pnc, pbk
@@ -124,7 +124,7 @@
 	\colorlet{col_subsubsection}{tum_blue_dark2}
 	\colorlet{col_table}{tum_blue_dark}
 	\colorlet{col_figure}{tum_blue_dark}
-	
+
 	\colorlet{col_link}{tum_blue}
 
 	\colorlet{col_lst}{tum_blue_dark}
@@ -144,7 +144,7 @@
 		\RequirePackage{lettrine}
 
 
-		% calculate linespacing based on font size 
+		% calculate linespacing based on font size
 		% char per line: 85
 		\RequirePackage{setspace}
 		% \setlength{\baselineskip}{3pt}
@@ -166,7 +166,7 @@
 
 
 	%\usepackage{natbib}
-	%\bibliographystyle{natdin} 
+	%\bibliographystyle{natdin}
 
 
 % ======================================================================
@@ -313,11 +313,11 @@
 				\setlength{\extrarowheight}{0em}%
 				\renewcommand*{\glossaryheader}{}% have nothing after \begin{theglossary}
 				\renewcommand*{\glsgroupheading}[1]{}%
-				\renewcommand*{\glsgroupskip}{}% have nothing between glossary groups		
+				\renewcommand*{\glsgroupskip}{}% have nothing between glossary groups
 				\begin{longtable}{@{}ll@{}}}{\end{longtable}}%
 			\renewcommand*{\glossaryentryfield}[5]{%
 				\textbf{\glstarget{##1}{##2}}% the entry name
-				##4% the symbol 
+				##4% the symbol
 				& ##3% the description
 				\space\space ##5\\}% the number list
 		}
@@ -334,11 +334,11 @@
 	\newcommand\frontmatter{%
 		\setcounter{page}{1}		% set page counter to 1
 		\pagenumbering{Roman}		% roman figures
-		\loadgeometry{frontmatter}	% 	
+		\loadgeometry{frontmatter}	%
 		\pagestyle{empty}			% no numbering in the frontmatter
 		\makeatletter
 			\let\ps@oldplain\ps@plain	% backup
-			\let\ps@plain\ps@empty		% set plain pagestyle to empty 
+			\let\ps@plain\ps@empty		% set plain pagestyle to empty
 		\makeatother
 	}
 
@@ -427,7 +427,7 @@
 		\else %% Für Einseitig
 			\fancyhead[OL]{\textcolor{black!70}{\leftmark --- \itshape\nouppercase{\rightmark}}}	% gerade Seiten, rechts
 			\fancyhead[OR]{\textcolor{black!70}{\thepage}}	% gerade Seiten, links
-		\fi 
+		\fi
 		\renewcommand{\headrulewidth}{0pt}    				% Underline headers
 		\renewcommand{\footrulewidth}{0pt}    				% no footer rule
 		%\fancypagestyle{plain}{}               % No chapter+section on chapter start pages
@@ -566,7 +566,7 @@
 		\makeatletter
 		\@removefromreset{figure}{chapter}			% continous figure numbering
 		\renewcommand\p@subfigure{\thefigure}
-		\renewcommand{\thefigure}{\@arabic\c@figure}	
+		\renewcommand{\thefigure}{\@arabic\c@figure}
 		\renewcommand{\thesubfigure}{\alph{subfigure})}
 		\makeatother
 
@@ -649,7 +649,7 @@
 	    numberstyle=\tiny\sffamily\color{col_lst_number},
 	    numbersep=1em,
 	    keepspaces=true,
-	    breaklines=true, 
+	    breaklines=true,
 	    breakatwhitespace=true,
 	    postbreak=\postbreak,
 	    keywordstyle=\bfseries\color{tum_blue_dark},

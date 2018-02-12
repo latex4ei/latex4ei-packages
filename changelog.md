@@ -1,9 +1,15 @@
-# LaTeX4EI Template					                                 
+# LaTeX4EI Template
 Date: 2016-01-06
 
 ## Changelog
 
-#### Release 1.0
+### Release 1.1
+
+* Added thesis class
+* Added general transformation command
+* Small Bugfixes
+
+### Release 1.0
 
 * new box macros
 	the boxes are now implemented as environments, which allows better error tracking.

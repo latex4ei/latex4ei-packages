@@ -1,12 +1,12 @@
 %
-% Report class from LaTeX4EI		
+% Report class from LaTeX4EI
 %
 % Authors: Emanuel Regnath, Martin Zellner
 % Contact: info@latex4ei.de
-% Version: 1.0
+% Version: 1.1
 % License: TBD
-% 
-% © 2011-2015, LaTeX4EI
+%
+% © 2011-2018, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
 \ProvidesClass{latex4ei_report}[2015/03/15]
@@ -26,7 +26,7 @@
 	% set default options for base class
 	\PassOptionsToClass{a4paper, 11pt}{\baseclass}
 
-	% pass unknown options to base class 
+	% pass unknown options to base class
 	\DeclareOption*{%
 		\PassOptionsToClass{\CurrentOption}{\baseclass}%
 	}
@@ -51,7 +51,7 @@
 
 
 	\RequirePackage{abstract}
-	
+
 
 
 % ======================================================================
@@ -76,10 +76,10 @@
 	%\renewcommand{\sfdefault}{cmss}		% cmss, phv pag
 
 
-	\shorthandoff{"} 					% don't convert "A to Ä!	
+	\shorthandoff{"} 					% don't convert "A to Ä!
 
 
-	% calculate linespacing based on font size 
+	% calculate linespacing based on font size
 	% char per line: 85
 	\RequirePackage{setspace}
 	\linespread{1.3}\selectfont
@@ -213,7 +213,7 @@
 
 		\makeatletter
 		\renewcommand\p@subfigure{\thefigure}
-		\renewcommand{\thefigure}{\@arabic\c@figure}	
+		\renewcommand{\thefigure}{\@arabic\c@figure}
 		\renewcommand{\thesubfigure}{\alph{subfigure})}
 		\makeatother
 
