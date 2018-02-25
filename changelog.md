@@ -1,5 +1,4 @@
 # LaTeX4EI Template
-Date: 2016-01-06
 
 ## Changelog
 
@@ -32,4 +31,4 @@ Date: 2016-01-06
 	Example: use \includegraphics{diagram} if you have a file ./img/diagram.pdf
 
 
-© 2011-2016, LaTeX4EI
+© 2011-2018, LaTeX4EI
