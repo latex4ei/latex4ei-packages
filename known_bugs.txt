@@ -17,4 +17,4 @@ Known Bugs: 1
 		\section command.
 
 
-© 2011-2018, LaTeX4EI
+© 2011-2019, LaTeX4EI

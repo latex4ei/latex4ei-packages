@@ -6,7 +6,7 @@
 % Version: 1.1
 % License: TBD
 %
-% © 2011-2018, LaTeX4EI
+% © 2011-2019, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}[1996/12/01]
 \ProvidesClass{latex4ei_report}[2015/03/15]

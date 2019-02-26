@@ -23,6 +23,9 @@
 % DOCUMENT_BEGIN ===============================================================
 \begin{document}
 
+\IfFileExists{git.id}{\input{git.id}}{}
+\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
+
 \maketitle	% requires ./img/Logo.pdf
 
 % SECTION ====================================================================================

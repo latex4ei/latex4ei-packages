@@ -1,4 +1,4 @@
-dist: trusty
+dist: xenial
 sudo: required
 
 addons:
@@ -8,22 +8,28 @@ addons:
     - imagemagick
 
 before_install:
-- wget http://mirrors.ctan.org/macros/latex/contrib/titlesec.zip
-- unzip titlesec.zip
+- wget http://mirrors.ctan.org/macros/latex/contrib/titlesec.zip && unzip titlesec.zip
 - sudo rm -r /usr/share/texlive/texmf-dist/tex/latex/titlesec
 - sudo mv titlesec /usr/share/texlive/texmf-dist/tex/latex/
+- wget https://gitlab.kitware.com/kmorel/UseLATEX/raw/master/UseLATEX.cmake
+- CMAKE_ROOT=$(cmake --system-information | grep "CMAKE_ROOT " | cut -d' ' -f 2 | cut -d'"' -f2)
+- sudo mv UseLATEX.cmake $CMAKE_ROOT/Modules/
 
 install: true
 
 script:
-- cp doc/LaTeX4EI-Template-Documentation.tex template-files/
-- cd template-files
-- pdflatex cheatsheet_example.tex
-- pdflatex cheatsheet_template.tex
-- pdflatex report_example.tex
-- pdflatex LaTeX4EI-Template-Documentation.tex
-- cd ../doc
-- pdflatex Scientific-Package-Documentation
+- mkdir -p build
+- cd build && cmake ..; make; cd ..
+- mkdir -p export && cp build/*.pdf build/git.id export
+- echo "# This branch is for deployment only" >> export/README.md
+
+deploy:
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN  # Set in travis-ci.org dashboard, marked secure
+  local-dir: export
+  on:
+    branch: master
 
 notifications:
   email: false

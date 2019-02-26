@@ -31,4 +31,4 @@
 	Example: use \includegraphics{diagram} if you have a file ./img/diagram.pdf
 
 
-© 2011-2018, LaTeX4EI
+© 2011-2019, LaTeX4EI

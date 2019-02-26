@@ -6,7 +6,7 @@
 % Version: 1.1
 % License: CC-BY-NC-SA
 %
-% © 2011-2018, LaTeX4EI
+% © 2011-2019, LaTeX4EI
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{latex4ei_sheet}[2014/03/30 Cheet Sheet Template from LaTeX4EI]
