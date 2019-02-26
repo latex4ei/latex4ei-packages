@@ -20,7 +20,7 @@ install: true
 script:
 - mkdir -p build
 - cd build && cmake ..; make; cd ..
-- mkdir -p export && cp build/*.pdf build/git.id export
+- mkdir -p export && cp build/doc/*.pdf build/template-files/*.pdf build/git.id export
 - echo "# This branch is for deployment only" >> export/README.md
 
 deploy:
