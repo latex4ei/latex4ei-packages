@@ -4,7 +4,11 @@ project(LaTeX4Ei NONE)
 include(UseLATEX)
 
 file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/template-files/latex4ei
-    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/template-files
+)
+
+file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/template-files/latex4ei
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}/doc
 )
 
 add_custom_target(
