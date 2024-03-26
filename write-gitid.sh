@@ -21,3 +21,6 @@ REPO_URL=$(git remote get-url origin)
 ISSUES_URL=$(echo $REPO_URL | sed -e 's/^git@github\.com:/https:\/\/github\.com\//' -e 's/\.git$//' -e 's/$/\/issues/')
 
 echo "\\def\\GitIssuesURL{$ISSUES_URL}" >> git.id
+
+#Copy git.id into template-files
+cp git.id /template-files/git.id
