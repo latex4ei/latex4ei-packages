@@ -23,4 +23,4 @@ ISSUES_URL=$(echo $REPO_URL | sed -e 's/^git@github\.com:/https:\/\/github\.com\
 echo "\\def\\GitIssuesURL{$ISSUES_URL}" >> git.id
 
 #Copy git.id into template-files
-cp git.id /template-files/git.id
+cp git.id template-files/git.id
