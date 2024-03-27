@@ -110,7 +110,7 @@
 	\newcommand{\setissueslinkurl}[1]{\renewcommand{\issueslinkurl}{#1}}
 
 	\fancyfoot[R]{\EngGer{Last revised}{Stand}: \themydate \qquad \thepage/\pageref{LastPage}}
-	\fancyfoot[L]{Homepage: \url{\thewebsite} -- \EngGer{Please report \href{\issueslinkurl}{mistakes} \emph{immediately}}{Fehler bitte \emph{sofort} \href{\issueslinkurl}{melden}}.}
+	\fancyfoot[L]{Homepage: \url{\thewebsite} -- \EngGer{Please \href{\issueslinkurl}{report} mistakes \emph{immediately}}{Fehler bitte \emph{sofort} \href{\issueslinkurl}{melden}}.}
 
 
 % Title
