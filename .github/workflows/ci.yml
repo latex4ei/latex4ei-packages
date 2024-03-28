@@ -15,8 +15,6 @@ jobs:
     container: makeappdev/uselatex:latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0 # Fetches all history for all branches and tags
 
       - name: Configure Git safe directory with GITHUB_WORKSPACE
         run: git config --global --add safe.directory $GITHUB_WORKSPACE
