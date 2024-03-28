@@ -106,7 +106,7 @@
 	\renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
 	\renewcommand{\footrulewidth}{0.1pt} %obere Linie ausblenden
 	
-	\newcommand{\issueslinkurl}{https://github.com/latex4ei} % Default URL placeholder
+	\newcommand{\issueslinkurl}{https://github.com/latex4ei/Allgemein/issues} % Default URL placeholder
 	\newcommand{\setissueslinkurl}[1]{\renewcommand{\issueslinkurl}{#1}}
 
 	\fancyfoot[R]{\EngGer{Last revised}{Stand}: \themydate \qquad \thepage/\pageref{LastPage}}
