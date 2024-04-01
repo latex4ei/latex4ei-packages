@@ -101,6 +101,13 @@
 	\fancyhf{}
 
 	\AtBeginDocument{
+	\IfFileExists{git.id}{\input{git.id}}{}
+	\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
+	\ifdefined\GitIssuesURL
+		\ifdefined\setissueslinkurl
+		\setissueslinkurl{\GitIssuesURL} % Set the actual URL
+		\fi
+	\fi
 	\fancyfoot[C]{\EngGer{from}{von} \theauthor\ -- Mail: \email{\theemail}}
 	}
 	\renewcommand{\headrulewidth}{0.0pt} %obere Linie ausblenden
