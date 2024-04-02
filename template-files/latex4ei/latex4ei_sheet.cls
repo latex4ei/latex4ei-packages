@@ -102,7 +102,7 @@
 
 	\AtBeginDocument{
 	\IfFileExists{git.id}{\input{git.id}}{}
-	\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
+	\ifdefined\GitNiceDate\mydate{\GitNiceDate\ (git \GitRevision)}\fi
 	\ifdefined\GitIssuesURL
 		\ifdefined\setissueslinkurl
 		\setissueslinkurl{\GitIssuesURL} % Set the actual URL
