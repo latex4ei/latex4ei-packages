@@ -115,6 +115,6 @@ sympy-plots-for-*.tex/
 
 # xindy
 *.xdy
-StochastischeSignale.pdf
+*.DS_Store
 template-files/git.id
 git.id

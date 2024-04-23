@@ -28,6 +28,17 @@
 % Basic Settings
 % ======================================================================
 
+% Language
+% ----------------------------------------------------------------------
+
+\RequirePackage[english, ngerman]{babel}
+
+\RequirePackage{iflang}
+\providecommand{\EngGer}[2]{\IfLanguageName{english}{#1}{#2}}
+\expandafter\selectlanguage\expandafter{\thelanguage}
+\AtBeginDocument{\expandafter\selectlanguage\expandafter{\thelanguage}}
+
+
 % Identify Compiler
 % ----------------------------------------------------------------------
 	\RequirePackage{ifxetex}
@@ -139,17 +150,6 @@
 	        pdfkeywords={latex4ei}
 	    }
 	}
-
-
-% Language
-% ----------------------------------------------------------------------
-
-	\RequirePackage[english, ngerman]{babel}
-
-	\RequirePackage{iflang}
-	\providecommand{\EngGer}[2]{\IfLanguageName{english}{#2}{#1}}
-	\expandafter\selectlanguage\expandafter{\thelanguage}
-	\AtBeginDocument{\expandafter\selectlanguage\expandafter{\thelanguage}}
 
 % Graphics
 % ----------------------------------------------------------------------
