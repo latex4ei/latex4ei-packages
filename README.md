@@ -37,4 +37,4 @@ cp -r template-files/latex4ei /usr/local/texlive/texmf-local/tex/latex/latex4ei
 If you want to share your documents please refer to the LICENSE file
 Read the changelog.md and known_bugs.txt and check [www.latex4ei.de](http://latex4ei.de) for updates.
 
-© 2011-2019, LaTeX4EI
+© 2011-2024, LaTeX4EI
