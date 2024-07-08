@@ -1,0 +1,25 @@
+name: Inhaltlicher Fehler
+description: Hilf uns Fehler zu Verbessern
+labels: [bug]
+assignees: []
+
+body:
+- type: markdown
+  attributes:
+    value: |
+      **Fehlerbeschreibung**
+- type: textarea
+  id: error-description
+  attributes:
+    label: Fehlerbeschreibung
+    description: Beschreibe hier den Fehler
+
+- type: markdown
+  attributes:
+    value: |
+      **Referenz**
+- type: textarea
+  id: reference
+  attributes:
+    label: Referenz
+    description: Wenn möglich immer eine Referenz zum Skript o.ä. angeben oder als Screenshot mit einfügen.

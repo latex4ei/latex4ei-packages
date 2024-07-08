@@ -12,7 +12,7 @@
 
 % possible options: color/nocolor, english/german, threecolumn
 % default: color, english
-\documentclass[english]{latex4ei/latex4ei_sheet}
+\documentclass[german]{latex4ei/latex4ei_sheet}
 
 % set document information
 \title{Example\\ Cheat Sheet}
@@ -22,10 +22,6 @@
 
 % DOCUMENT_BEGIN ===============================================================
 \begin{document}
-
-\IfFileExists{git.id}{\input{git.id}}{}
-\ifdefined\GitRevision\mydate{\GitNiceDate\ (git \GitRevision)}\fi
-
 \maketitle	% requires ./img/Logo.pdf
 
 % SECTION ====================================================================================
@@ -101,12 +97,12 @@ Unicode Tests:\\
 \end{symbolbox}
 
 \begin{sectionbox}
-	\subsection{Einheitpräfixe}
-	\begin{tablebox}{l | ccccccccc}
-		$10^\pm$ 	& $21$ & $18$ & $15$ 	&  $12$ & $9$ &  $6$ & $3$ &  $2$ & $1$ \\ \cmrule
-		$+$			& $\underset{\ir zetta}{\si{\zetta}}$ & $\underset{\ir exa}{\si{\exa}}$ & $\underset{\ir peta}{\si{\peta}}$	& $\underset{\ir tera}{\si{\tera}}$ & $\underset{\ir giga}{\si{\giga}}$ & $\underset{\ir mega}{\si{\mega}}$ & $\underset{\ir kilo}{\si{\kilo}}$ & $\underset{\ir hecto}{\si{\hecto}}$ & $\underset{\ir deca}{\si{\deca}}$ \\
-		$-$ 		& $\underset{\ir zepto}{\si{\zepto}}$ & $\underset{\ir atto}{\si{\atto}}$ & $\underset{\ir femto}{\si{\femto}}$ & $\underset{\ir pico}{\si{\pico}}$ & $\underset{\ir nano}{\si{\nano}}$ & $\underset{\ir micro}{\si{\micro}}$ & $\underset{\ir milli}{\si{\milli}}$  & $\underset{\ir centi}{\si{\centi}}$& $\underset{\ir deci}{\si{\deci}}$
-	\end{tablebox}
+    \subsection{Einheitpräfixe}
+    \begin{tablebox}{l | ccccccccc}
+        $10^\pm$    & $21$ & $18$ & $15$    &  $12$ & $9$ &  $6$ & $3$ &  $2$ & $1$ \\ \cmrule
+        $+$            & $\underset{\ir zetta}{\si{\text{\zetta}}}$ & $\underset{\ir exa}{\si{\text{\exa}}}$ & $\underset{\ir peta}{\si{\text{\peta}}}$    & $\underset{\ir tera}{\si{\text{\tera}}}$ & $\underset{\ir giga}{\si{\text{\giga}}}$ & $\underset{\ir mega}{\si{\text{\mega}}}$ & $\underset{\ir kilo}{\text{kilo}}$ & $\underset{\ir hecto}{\si{\text{\hecto}}}$ & $\underset{\ir deca}{\si{\text{\deca}}}$ \\
+        $-$         & $\underset{\ir zepto}{\si{\text{\zepto}}}$ & $\underset{\ir atto}{\si{\text{\atto}}}$ & $\underset{\ir femto}{\si{\text{\femto}}}$ & $\underset{\ir pico}{\si{\text{\pico}}}$ & $\underset{\ir nano}{\si{\text{\nano}}}$ & $\underset{\ir micro}{\si{\text{\micro}}}$ & $\underset{\ir milli}{\si{\text{\milli}}}$  & $\underset{\ir centi}{\si{\text{\centi}}}$& $\underset{\ir deci}{\si{\text{\deci}}}$
+    \end{tablebox}
 \end{sectionbox}
 
 

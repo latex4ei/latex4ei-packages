@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🔍 Search for existing issues first.
+    url: https://github.com/latex4ei/Allgemein/issues
+    about: Please search to see if an issue already exists, either in this repo or our common issue in https://github.com/latex4ei/Allgemein/issues
