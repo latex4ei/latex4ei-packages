@@ -2,6 +2,12 @@
 
 ## Changelog
 
+### Release 1.2
+
+* Added hyperlink to issues page in the footer
+* Fixed languages being swapped
+* Fixed CI
+
 ### Release 1.1
 
 * Added thesis class
@@ -31,4 +37,4 @@
 	Example: use \includegraphics{diagram} if you have a file ./img/diagram.pdf
 
 
-© 2011-2019, LaTeX4EI
+© 2011-2024, LaTeX4EI
